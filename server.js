@@ -16,8 +16,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 
-// Point static path to src -- For building -- REMOVE
-app.use(express.static(path.join(__dirname, 'src')));
+// Point static path to dist -- For building -- REMOVE
+app.use(express.static(path.join(__dirname, 'dist')));
 
 
 
@@ -46,7 +46,7 @@ serverSide(app);
 
 // For Build: Catch all other routes and return the index file -- BUILDING
 app.get('*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'src/index.html'));
+  res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
 
