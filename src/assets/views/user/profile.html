@@ -11,7 +11,19 @@
   <title>User Profile</title>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
 
-
+  <style>
+    .wbdev-profile-heading {
+      font-size: 26px;
+      color: #000000;
+      padding: 10px;
+      max-width: 600px;
+      margin-bottom: 10px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.518);
+    }
+  </style>
   <!-- STYLE sheet comes after all the libraries are loaded. Document style-->
 
   <link href="../css/style.css" rel="stylesheet"/>
@@ -20,71 +32,96 @@
 <body>
 
 <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-
-    <!--heading on the nav bar-->
-    <p class="navbar-header pull-left">
-      <a class="navbar-brand thick">
-        <b>Profile</b>
-      </a>
-    </p>
-
-    <!--tick mark-->
-    <p class="navbar-text pull-right">
-      <a href="profile.html" class="navbar-link">
-        <span class="glyphicon glyphicon-ok"></span>
-      </a>
-    </p>
-
+  <!--<div class="container-fluid">-->
+  <!--tick mark-->
+  <div class="navbar-brand pull-right">
+    <a href="profile.html" class="navbar-link">
+      <span class="glyphicon glyphicon-ok"></span>
+    </a>
   </div>
+  <!--heading on the nav bar-->
+  <p class="navbar-header pull-left">
+    <a class="navbar-brand ">
+      <b>Profile</b>
+    </a>
+  </p>
+  <!--</div>-->
 </nav>
 
 
-<div class="container">
-  <form>
+<div class="container-fluid">
+  <div class="row wbdev-profile-heading text-center">
+    Welcome Joe
+  </div>
+  <form action="profile.html" method="post">
     <div class="form-group">
-      <label for="username">Username</label>
-      <input type="text" class="form-control" id="username" placeholder="walice">
+      <label for="username">
+        Username
+      </label>
+      <input type="text"
+             class="form-control"
+             id="username"
+             placeholder="walice">
+    </div>
+
+    <div class="form-group">
+      <label for="email">
+        Email address
+      </label>
+      <input type="email"
+             class="form-control"
+             id="email"
+             placeholder="alice.wonderland@unicorn.com">
+    </div>
+
+    <div class="form-group">
+      <label for="first-name">
+        First Name
+      </label>
+      <input type="text"
+             class="form-control"
+             id="first-name"
+             placeholder="Alice">
+    </div>
+
+    <div class="form-group">
+      <label for="last-name">
+        Last Name
+      </label>
+      <input type="text"
+             class="form-control"
+             id="last-name"
+             placeholder="Wonderland">
+    </div>
+    <div class="form-group">
+      <div class="hidden-xs">
+        <input type="submit"
+               class="form-control btn btn-success"
+               value="Update">
+      </div>
     </div>
   </form>
-
-  <form>
-    <div class="form-group">
-      <label for="email">Email address</label>
-      <input type="email" class="form-control" id="email" placeholder="alice.wonderland@unicorn.com">
-    </div>
-  </form>
-
-  <form>
-    <div class="form-group">
-      <label for="first-name">First Name</label>
-      <input type="text" class="form-control" id="first-name" placeholder="Alice">
-    </div>
-  </form>
-
-  <form>
-    <div class="form-group">
-      <label for="last-name">Last Name</label>
-      <input type="text" class="form-control" id="last-name" placeholder="Wonderland">
-    </div>
-  </form>
-  <a class="btn btn-primary btn-block"
-     href="../website/website-list.html">Websites</a>
-  <a class="btn btn-danger btn-block "
-     href="login.html" >Logout</a>
-
+  <div class="form-group">
+    <a class="btn btn-primary btn-block"
+       href="../website/website-list.html">
+      Websites
+    </a>
+  </div>
+  <div class="form-group">
+    <a class="btn btn-danger btn-block "
+       href="login.html">
+      Logout
+    </a>
+  </div>
 </div>
 
 <!-- Footer -->
 <nav class="navbar navbar-default navbar-fixed-bottom">
-  <div class="container-fluid">
-    <p class="navbar-text pull-right">
+    <p class="navbar-brand pull-right">
       <a href="profile.html">
         <span class="glyphicon glyphicon-user"></span>
       </a>
     </p>
-
-  </div>
 </nav>
 
 </body>
