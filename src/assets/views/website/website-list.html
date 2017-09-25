@@ -8,30 +8,25 @@
 
 
   <meta charset="UTF-8">
-  <title>User Profile</title>
+  <title>List of Websites</title>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
 
-  <style>
-    .ty-10{
-      margin-bottom: 10px;
-    }
-  </style>
   <!-- STYLE sheet comes after all the libraries are loaded. Document style-->
 
   <link href="../css/style.css" rel="stylesheet"/>
 </head>
 
 <body>
-<nav class="navbar navbar-default navbar-static-top">
-  <!--<div class="container-fluid">-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
   <!--plus sign-->
-  <div class="navbar-brand pull-right">
+  <div class="navbar-brand pull-right right-margin-fix">
     <a href="website-new.html" class="navbar-link">
       <span class="glyphicon glyphicon-plus"></span>
     </a>
   </div>
-  <!--tick mark-->
-  <div class="navbar-brand pull-left">
+  <!--back sign-->
+  <div class="navbar-brand pull-left left-margin-fix">
     <a href="../user/profile.html" class="navbar-link">
       <span class="glyphicon glyphicon-chevron-left"></span>
     </a>
@@ -42,56 +37,54 @@
       <b>Websites</b>
     </a>
   </p>
-  <!--</div>-->
+  </div>
 </nav>
 
 <div class="container-fluid">
 
-  <div class="row ty-10">
-    <a href="../page/page-list.html"
-       class="col-xs-10">
-      Address book App
-    </a>
-    <a href="website-edit.html"
-       class="col-xs-2 text-right">
-      <span class="glyphicon glyphicon-cog"></span>
-    </a>
-  </div>
-  <div class="row ty-10">
-    <a href="../page/page-list.html"
-       class="col-xs-10">
-      Blogger
-    </a>
-    <a href="website-edit.html"
-       class="col-xs-2 text-right">
-      <span class="glyphicon glyphicon-cog"></span>
-    </a>
-  </div>
-  <div class="row ty-10">
-    <a href="../page/page-list.html"
-       class="col-xs-10">
-      Blogging App
-    </a>
-    <a href="website-edit.html"
-       class="col-xs-2 text-right">
-      <span class="glyphicon glyphicon-cog"></span>
-    </a>
-  </div>
-  <div class="row ty-10">
-    <a href="../page/page-list.html"
-       class="col-xs-10">
-      Script Testing App
-    </a>
-    <a href="website-edit.html"
-       class="col-xs-2 text-right">
-      <span class="glyphicon glyphicon-cog"></span>
-    </a>
-  </div>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <a href="../page/page-list.html">
+        Address book App
+      </a>
+      <a href="website-edit.html"
+         class="pull-right">
+        <span class="glyphicon glyphicon-cog"></span>
+      </a>
+    </li>
+    <li class="list-group-item">
+      <a href="../page/page-list.html">
+        Blogger
+      </a>
+      <a href="website-edit.html"
+         class="pull-right">
+        <span class="glyphicon glyphicon-cog"></span>
+      </a>
+    </li>
+    <li class="list-group-item">
+      <a href="../page/page-list.html">
+        Blogging App
+      </a>
+      <a href="website-edit.html"
+         class="pull-right">
+        <span class="glyphicon glyphicon-cog"></span>
+      </a>
+    </li>
+    <li class="list-group-item">
+      <a href="../page/page-list.html">
+        Script Testing App
+      </a>
+      <a href="website-edit.html"
+         class="pull-right">
+        <span class="glyphicon glyphicon-cog"></span>
+      </a>
+    </li>
+  </ul>
 </div>
 <!-- Footer -->
-<nav class="navbar navbar-default navbar-fixed-bottom">
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
   <p class="navbar-brand pull-right">
-    <a href="profile.html">
+    <a href="../user/profile.html">
       <span class="glyphicon glyphicon-user"></span>
     </a>
   </p>
