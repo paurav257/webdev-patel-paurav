@@ -1,10 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <!-- Meta tags for making website for mobile-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="initial-scale=1.25, user-scalable=no">
+
+
+  <meta charset="UTF-8">
+  <title>Image Widget</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <!-- STYLE sheet comes after all the libraries are loaded. Document style-->
+
+  <link href="../css/style.css" rel="stylesheet"/>
 </head>
 <body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <!--tick mark-->
+    <div class="navbar-brand pull-right right-margin-fix">
+      <a href="widget-list.html" class="navbar-link">
+        <span class="glyphicon glyphicon-ok-sign"></span>
+      </a>
+    </div>
+    <!--tick mark-->
+    <div class="navbar-brand pull-left left-margin-fix">
+      <a href="widget-list.html" class="navbar-link">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+    </div>
+    <!--heading on the nav bar-->
+    <p class="navbar-header pull-left">
+      <a class="navbar-brand ">
+        <b>Widget Edit</b>
+      </a>
+    </p>
+  </div>
+</nav>
 
+<div class="container-fluid">
+  <form action="profile.html" method="post">
+    <div class="form-group">
+      <label for="name">
+        Name
+      </label>
+      <input type="text"
+             class="form-control"
+             id="name"
+             placeholder="">
+    </div>
+
+    <div class="form-group">
+      <label for="text">
+        Text
+      </label>
+      <input type="email"
+             class="form-control"
+             id="text"
+             placeholder="">
+    </div>
+
+    <div class="form-group">
+      <label for="url">
+        URL
+      </label>
+      <input type="text"
+             class="form-control"
+             id="url"
+             placeholder="https://www.youtube.com/watch?v=ue80QwXMRHg">
+    </div>
+
+    <div class="form-group">
+      <label for="width">
+        Width
+      </label>
+      <input type="text"
+             class="form-control"
+             id="width"
+             placeholder="">
+    </div>
+
+    <div class="form-group">
+      <label for="upload">
+        Upload
+      </label>
+      <input type="file"
+             class="form-control"
+             id="upload"
+             value="100%">
+    </div>
+
+    <div class="form-group">
+      <btn class="form-control btn btn-primary">
+        Upload Image
+      </btn>
+    </div>
+
+    <div class="form-group">
+      <a class="btn btn-danger btn-block "
+         href="login.html">
+        Delete
+      </a>
+    </div>
+  </form>
+</div>
+
+<!-- Footer -->
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
+  <p class="navbar-brand pull-right">
+    <a href="../user/profile.html">
+      <span class="glyphicon glyphicon-user"></span>
+    </a>
+  </p>
+</nav>
 </body>
 </html>
