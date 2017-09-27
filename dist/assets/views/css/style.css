@@ -23,11 +23,24 @@
   right: 15px;
   top: 0px;
 }
+
+li {
+  border-top: 0 none;
+  border-left: 0 none;
+  border-right: 0 none;
+  border-bottom: 0 none;
+
+}
+
+.navbar-header, .navbar-brand {
+  margin-bottom: 0px;
+}
+
 body {
   padding-top: 70px;
   padding-bottom: 70px;
 }
 
-a{
+a {
   text-decoration: none !important;
 }
