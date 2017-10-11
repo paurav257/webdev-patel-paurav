@@ -319,7 +319,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "::ng-deep body {\n  padding-top: 70px;\n  padding-bottom: 70px;\n}\n", ""]);
 
 // exports
 
@@ -407,7 +407,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "::ng-deep body {\n  padding-top: 70px;\n  padding-bottom: 70px;\n}\n", ""]);
 
 // exports
 
@@ -482,7 +482,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "::ng-deep body {\n  padding-top: 70px;\n  padding-bottom: 70px;\n}\n", ""]);
 
 // exports
 
@@ -663,7 +663,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "\n", ""]);
 
 // exports
 
@@ -749,7 +749,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "::ng-deep body {\n  padding-top: 70px;\n  padding-bottom: 70px;\n}\n", ""]);
 
 // exports
 
@@ -944,7 +944,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "::ng-deep body {\n  padding-top: 70px;\n  padding-bottom: 70px;\n}\n", ""]);
 
 // exports
 
@@ -1031,7 +1031,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "::ng-deep body {\n  padding-top: 70px;\n  padding-bottom: 70px;\n}\n", ""]);
 
 // exports
 
@@ -1105,7 +1105,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "::ng-deep body {\n  padding-top: 70px;\n  padding-bottom: 70px;\n}\n", ""]);
 
 // exports
 
@@ -1192,7 +1192,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "::ng-deep body {\n  padding-top: 70px;\n  padding-bottom: 70px;\n}\n", ""]);
 
 // exports
 
@@ -1263,7 +1263,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "::ng-deep body {\n  padding-top: 70px;\n  padding-bottom: 70px;\n}\n", ""]);
 
 // exports
 
@@ -1742,7 +1742,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "::ng-deep body {\n  padding-top: 70px;\n  padding-bottom: 70px;\n}\n", ""]);
 
 // exports
 
