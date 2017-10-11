@@ -1,0 +1,103 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="row container-fluid">
+    <div class="col-sm-4 hidden-xs">
+      <!--plus sign-->
+      <div class="navbar-brand pull-right">
+        <a [routerLink]="['/user', userId, 'website', 'new']"
+           class="navbar-link">
+          <span class="glyphicon glyphicon-plus"></span>
+        </a>
+      </div>
+      <!--back sign-->
+      <div class="navbar-brand pull-left left-margin-fix">
+        <a [routerLink]="['/user', userId, 'website']"
+           class="navbar-link">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+      </div>
+      <!--heading on the nav bar-->
+      <p class="navbar-header pull-left">
+        <a class="navbar-brand ">
+          <b>Websites</b>
+        </a>
+      </p>
+    </div>
+    <div class="col-sm-8 col-xs-12">
+      <!--tick mark-->
+      <div class="navbar-brand pull-right right-margin-fix">
+        <a (click)="createWebsite()"
+           [routerLink]="['/user', userId, 'website']"
+           class="navbar-link">
+          <span class="glyphicon glyphicon-ok-sign"></span>
+        </a>
+      </div>
+      <!--tick mark-->
+      <div class="navbar-brand pull-left visible-xs left-margin-fix">
+        <a [routerLink]="['/user', userId, 'website']"
+           class="navbar-link">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+      </div>
+      <!--heading on the nav bar-->
+      <p class="navbar-header pull-left">
+        <a class="navbar-brand ">
+          <b>New Websites</b>
+        </a>
+      </p>
+    </div>
+  </div>
+</nav>
+
+<div class="row container-fluid ">
+  <div class="col-sm-4 hidden-xs">
+    <ul class="list-group">
+      <div *ngFor="let website of websites">
+        <li class="list-group-item">
+          <a [routerLink]="['/user', userId, 'website', website._id,'page']">
+            {{website.name}}
+          </a>
+          <a [routerLink]="['/user', userId, 'website', website._id]"
+             class="pull-right">
+            <span class="glyphicon glyphicon-cog"></span>
+          </a>
+        </li>
+      </div>
+    </ul>
+  </div>
+  <div class="col-sm-8 col-xs-12">
+    <form #f="ngForm">
+      <div class="form-group">
+        <label for="websiteName">
+          Name
+        </label>
+        <input ngModel=""
+               name="websiteName"
+               required
+               type="text"
+               class="form-control mr-5"
+               id="websiteName"
+               placeholder="Website Name">
+      </div>
+      <div class="form-group">
+        <label for="websiteDesc">
+          Description
+        </label>
+        <textarea ngModel=""
+                  name="websiteDesc"
+                  required
+                  rows="5"
+                  class="form-control mr-5"
+                  id="websiteDesc"
+                  placeholder="websiteDesc"></textarea>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- Footer -->
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
+  <p class="navbar-brand pull-right">
+    <a [routerLink]="['/user', userId]">
+      <span class="glyphicon glyphicon-user"></span>
+    </a>
+  </p>
+</nav>

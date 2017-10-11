@@ -1,0 +1,148 @@
+<div *ngIf="widgetEdit;then edit else new"></div>
+<ng-template #edit>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <!--tick mark-->
+    <div class="navbar-brand pull-right right-margin-fix">
+      <a (click)="updateWidget()"
+         [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']"
+         class="navbar-link">
+        <span class="glyphicon glyphicon-ok-sign"></span>
+      </a>
+    </div>
+    <!--tick mark-->
+    <div class="navbar-brand pull-left left-margin-fix">
+      <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']"
+         class="navbar-link">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+    </div>
+    <!--heading on the nav bar-->
+    <p class="navbar-header pull-left">
+      <a class="navbar-brand ">
+        <b>Widget Edit</b>
+      </a>
+    </p>
+  </div>
+</nav>
+</ng-template>
+
+<ng-template #new>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!--tick mark-->
+      <div class="navbar-brand pull-right right-margin-fix">
+        <a (click)="createWidget()"
+           [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']"
+           class="navbar-link">
+          <span class="glyphicon glyphicon-ok-sign"></span>
+        </a>
+      </div>
+      <!--tick mark-->
+      <div class="navbar-brand pull-left left-margin-fix">
+        <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget', 'new']"
+           class="navbar-link">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+      </div>
+      <!--heading on the nav bar-->
+      <p class="navbar-header pull-left">
+        <a class="navbar-brand ">
+          <b>New Widget</b>
+        </a>
+      </p>
+    </div>
+  </nav>
+</ng-template>
+
+<div class="container-fluid">
+  <form>
+    <div class="form-group">
+      <label for="nameImage">
+        Name
+      </label>
+      <input [(ngModel)]="nameImage"
+             required
+             name="nameImage"
+             type="text"
+             class="form-control"
+             id="nameImage"
+             placeholder="">
+    </div>
+
+    <div class="form-group">
+      <label for="textImage">
+        Text
+      </label>
+      <input [(ngModel)]="textImage"
+             required
+             name="textImage"
+             type="text"
+             class="form-control"
+             id="textImage"
+             placeholder="">
+    </div>
+
+    <div class="form-group">
+      <label for="urlImage">
+        URL
+      </label>
+      <input [(ngModel)]="urlImage"
+             required
+             name="urlImage"
+             type="text"
+             class="form-control"
+             id="urlImage"
+             placeholder="https://www.youtube.com/watch?v=ue80QwXMRHg">
+    </div>
+
+    <div class="form-group">
+      <label for="widthImage">
+        Width
+      </label>
+      <input [(ngModel)]="widthImage"
+             required
+             name="widthImage"
+             type="text"
+             class="form-control"
+             id="widthImage"
+             placeholder="">
+    </div>
+
+    <div class="form-group">
+      <label for="uploadImage">
+        Upload
+      </label>
+      <input [(ngModel)]="uploadImage"
+             required
+             name="uploadImage"
+             type="file"
+             class="form-control"
+             id="uploadImage"
+             value="100%">
+    </div>
+
+    <div class="form-group">
+      <button class="form-control btn btn-primary">
+        Upload Image
+      </button>
+    </div>
+
+    <div class="form-group">
+      <a (click)="deleteWidget()"
+         class="btn btn-danger btn-block "
+         [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']">
+        Delete
+      </a>
+    </div>
+  </form>
+</div>
+
+<!-- Footer -->
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
+  <p class="navbar-brand pull-right">
+    <a [routerLink]="['/user', userId]">
+      <span class="glyphicon glyphicon-user"></span>
+    </a>
+  </p>
+</nav>
