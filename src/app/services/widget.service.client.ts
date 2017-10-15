@@ -26,8 +26,8 @@ export class WidgetService {
   ];
 
   createWidget(pageId, widget) {
-    widget._id = Math.random() + '';
-    widget.pageId = pageId;
+    widget['_id'] = Math.floor(Math.random() * 1000) + '';
+    widget['pageId'] = pageId;
     this.widgets.push(widget);
     return widget;
   }
@@ -46,8 +46,8 @@ export class WidgetService {
 
   updateWidget(widgetId, widget) {
     for (let x = 0; x < this.widgets.length; x++) {
-      if (this.widgets[x]._id === widgetId) {
-        switch (widget.type) {
+      if (this.widgets[x]['_id'] === widgetId) {
+        switch (widget['type']) {
           case 'HEADING':
             this.widgets[x]['size'] = widget['size'];
             this.widgets[x]['text'] = widget['text'];
@@ -64,7 +64,7 @@ export class WidgetService {
             this.widgets[x]['text'] = widget['text'];
             break;
         }
-        this.widgets[x]._id = widgetId;
+        this.widgets[x]['_id'] = widgetId;
         return this.widgets[x];
       }
     }
@@ -72,7 +72,7 @@ export class WidgetService {
 
   deleteWidget(widgetId) {
     for (let x = 0; x < this.widgets.length; x++) {
-      if (this.widgets[x]._id === widgetId) {
+      if (this.widgets[x]['_id'] === widgetId) {
         delete this.widgets[x];
       }
     }

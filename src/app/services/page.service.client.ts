@@ -16,29 +16,29 @@ export class PageService {
   ];
 
   createPage(webiteId, page) {
-    page._id = Math.random() + '';
-    page.websiteId = webiteId;
+    page['_id'] = Math.floor(Math.random() * 1000) + '';
+    page['websiteId'] = webiteId;
     this.pages.push(page);
     return page;
   }
 
   findPagesByWebsiteId(websiteId) {
     return this.pages.filter(function (page) {
-      return page.websiteId === websiteId;
+      return page['websiteId'] === websiteId;
     });
   }
 
   findPageById(pageId) {
     return this.pages.find(function (page) {
-      return page._id === pageId;
+      return page['_id'] === pageId;
     });
   }
 
   updatePage(pageId, page) {
     for (let x = 0; x < this.pages.length; x++) {
-      if (this.pages[x]._id === pageId) {
-        this.pages[x].name = page.name;
-        this.pages[x].description = page.description;
+      if (this.pages[x]['_id'] === pageId) {
+        this.pages[x]['name'] = page.name;
+        this.pages[x]['description'] = page.description;
         return this.pages[x];
       }
     }
@@ -46,7 +46,7 @@ export class PageService {
 
   deletePage(pageId) {
     for (let x = 0; x < this.pages.length; x++) {
-      if (this.pages[x]._id === pageId) {
+      if (this.pages[x]['_id'] === pageId) {
         delete this.pages[x];
       }
     }

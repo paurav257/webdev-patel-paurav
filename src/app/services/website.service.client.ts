@@ -20,29 +20,29 @@ export class WebsiteService {
   ];
 
   createWebsite(userId, website) {
-    website._id = Math.random() + '';
-    website.developerId = userId;
+    website['_id'] = Math.floor(Math.random() * 1000) + '';
+    website['developerId'] = userId;
     this.websites.push(website);
     return website;
   }
 
   findWebsitesByUser(userId) {
     return this.websites.filter(function (website) {
-      return website.developerId === userId;
+      return website['developerId'] === userId;
     });
   }
 
   findWebsiteById(websiteId) {
     return this.websites.find(function (website) {
-      return website._id === websiteId;
+      return website['_id'] === websiteId;
     });
   }
 
   updateWebsite(websiteId, website) {
     for (let x = 0; x < this.websites.length; x++) {
-      if (this.websites[x]._id === websiteId) {
-        this.websites[x].name = website.name;
-        this.websites[x].description = website.description;
+      if (this.websites[x]['_id'] === websiteId) {
+        this.websites[x]['name'] = website.name;
+        this.websites[x]['description'] = website.description;
         return this.websites[x];
       }
     }
@@ -50,7 +50,7 @@ export class WebsiteService {
 
   deleteWebsite(websiteId) {
     for (let x = 0; x < this.websites.length; x++) {
-      if (this.websites[x]._id === websiteId) {
+      if (this.websites[x]['_id'] === websiteId) {
         delete this.websites[x];
       }
     }

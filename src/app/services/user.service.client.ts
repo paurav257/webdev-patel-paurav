@@ -22,20 +22,20 @@ export class UserService {
   };
 
   createUser(user: User) {
-    user._id = Math.random() + '';
+    user['_id'] = Math.floor(Math.random() * 1000) + '';
     this.users.push(user);
     return user;
   }
 
   findUserById(userId: String) {
     return this.users.find(function (user) {
-      return user._id === userId;
+      return user['_id'] === userId;
     });
   }
 
   findUserByUsername(username: String) {
     for (let x = 0; x < this.users.length; x++) {
-      if (this.users[x].userName === username) {
+      if (this.users[x]['userName'] === username) {
         return this.users[x];
       }
     }
@@ -43,11 +43,11 @@ export class UserService {
 
   updateUser(userId, user) {
     for (let x = 0; x < this.users.length; x++) {
-      if (this.users[x]._id === userId) {
-        this.users[x].firstName = user.firstName;
-        this.users[x].lastName = user.lastName;
-        this.users[x].userName = user.userName;
-        this.users[x].email = user.email;
+      if (this.users[x]['_id'] === userId) {
+        this.users[x]['firstName'] = user.firstName;
+        this.users[x]['lastName'] = user.lastName;
+        this.users[x]['userName'] = user.userName;
+        this.users[x]['email'] = user.email;
         return this.users[x];
       }
     }
@@ -55,7 +55,7 @@ export class UserService {
 
   deleteUser(userId) {
     for (let x = 0; x < this.users.length; x++) {
-      if (this.users[x]._id === userId) {
+      if (this.users[x]['_id'] === userId) {
         delete this.users[x];
       }
     }

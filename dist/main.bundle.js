@@ -762,7 +762,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/user/profile/profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-inverse navbar-fixed-top\">\n  <div class=\"container-fluid\">\n    <!--tick mark-->\n    <div class=\"navbar-brand pull-right right-margin-fix\">\n      <a (click)=\"editProfile()\" routerLink=\"/user/:uid\" class=\"navbar-link\">\n        <span class=\"glyphicon glyphicon-ok\"></span>\n      </a>\n    </div>\n    <!--heading on the nav bar-->\n    <p class=\"navbar-header pull-left\">\n      <a class=\"navbar-brand \">\n        <b>Profile</b>\n      </a>\n    </p>\n  </div>\n</nav>\n<div *ngIf=\"errorFlag\"\n     class=\"alert alert-danger\">\n  {{errorMsg}}\n</div>\n\n<div class=\"container-fluid\">\n  <form #f=\"ngForm\">\n    <div class=\"form-group\">\n      <label for=\"userName\">\n        Username\n      </label>\n      <input name=\"userName\"\n             ngModel=\"\"\n             type=\"text\"\n             class=\"form-control\"\n             id=\"userName\"\n             placeholder={{user.userName}}>\n    </div>\n\n    <div class=\"form-group\">\n      <label for=\"email\">\n        Email address\n      </label>\n      <input name=\"email\"\n             ngModel=\"\"\n             type=\"email\"\n             class=\"form-control\"\n             id=\"email\"\n             placeholder={{user.email}}>\n    </div>\n\n    <div class=\"form-group\">\n      <label for=\"first-name\">\n        First Name\n      </label>\n      <input name=\"firstName\"\n             ngModel=\"\"\n             type=\"text\"\n             class=\"form-control\"\n             id=\"first-name\"\n             placeholder={{user.firstName}}>\n    </div>\n\n    <div class=\"form-group\">\n      <label for=\"last-name\">\n        Last Name\n      </label>\n      <input name=\"lastName\"\n             ngModel=\"\"\n             type=\"text\"\n             class=\"form-control\"\n             id=\"last-name\"\n             placeholder={{user.lastName}}>\n    </div>\n  </form>\n  <div class=\"form-group\">\n    <button class=\"btn btn-primary btn-block\"\n            [routerLink]=\"['website']\">\n      Websites\n    </button>\n  </div>\n  <div class=\"form-group\">\n    <a class=\"btn btn-danger btn-block \"\n       routerLink=\"/login\">\n      Logout\n    </a>\n  </div>\n</div>\n\n<!-- Footer -->\n<nav class=\"navbar navbar-inverse navbar-fixed-bottom\">\n  <p class=\"navbar-brand pull-right\">\n    <a routerLink=\"/user/:uid\">\n      <span class=\"glyphicon glyphicon-user\"></span>\n    </a>\n  </p>\n</nav>\n"
+module.exports = "<nav class=\"navbar navbar-inverse navbar-fixed-top\">\n  <div class=\"container-fluid\">\n    <!--tick mark-->\n    <div class=\"navbar-brand pull-right right-margin-fix\">\n      <a (click)=\"editProfile()\" [routerLink]=\"['/user', userId]\" class=\"navbar-link\">\n        <span class=\"glyphicon glyphicon-ok\"></span>\n      </a>\n    </div>\n    <!--heading on the nav bar-->\n    <p class=\"navbar-header pull-left\">\n      <a class=\"navbar-brand \">\n        <b>Profile</b>\n      </a>\n    </p>\n  </div>\n</nav>\n<div *ngIf=\"errorFlag\"\n     class=\"alert alert-danger\">\n  {{errorMsg}}\n</div>\n\n<div class=\"container-fluid\">\n  <form #f=\"ngForm\">\n    <div class=\"form-group\">\n      <label for=\"userName\">\n        Username\n      </label>\n      <input name=\"userName\"\n             ngModel=\"\"\n             type=\"text\"\n             class=\"form-control\"\n             id=\"userName\"\n             placeholder={{user.userName}}>\n    </div>\n\n    <div class=\"form-group\">\n      <label for=\"email\">\n        Email address\n      </label>\n      <input name=\"email\"\n             ngModel=\"\"\n             type=\"email\"\n             class=\"form-control\"\n             id=\"email\"\n             placeholder={{user.email}}>\n    </div>\n\n    <div class=\"form-group\">\n      <label for=\"first-name\">\n        First Name\n      </label>\n      <input name=\"firstName\"\n             ngModel=\"\"\n             type=\"text\"\n             class=\"form-control\"\n             id=\"first-name\"\n             placeholder={{user.firstName}}>\n    </div>\n\n    <div class=\"form-group\">\n      <label for=\"last-name\">\n        Last Name\n      </label>\n      <input name=\"lastName\"\n             ngModel=\"\"\n             type=\"text\"\n             class=\"form-control\"\n             id=\"last-name\"\n             placeholder={{user.lastName}}>\n    </div>\n  </form>\n  <div class=\"form-group\">\n    <button class=\"btn btn-primary btn-block\"\n            [routerLink]=\"['website']\">\n      Websites\n    </button>\n  </div>\n  <div class=\"form-group\">\n    <a class=\"btn btn-danger btn-block \"\n       routerLink=\"/login\">\n      Logout\n    </a>\n  </div>\n</div>\n\n<!-- Footer -->\n<nav class=\"navbar navbar-inverse navbar-fixed-bottom\">\n  <p class=\"navbar-brand pull-right\">\n    <a [routerLink]=\"['/user', userId]\">\n      <span class=\"glyphicon glyphicon-user\"></span>\n    </a>\n  </p>\n</nav>\n"
 
 /***/ }),
 
@@ -1866,33 +1866,33 @@ var PageService = (function () {
         ];
     }
     PageService.prototype.createPage = function (webiteId, page) {
-        page._id = Math.random() + '';
-        page.websiteId = webiteId;
+        page['_id'] = Math.floor(Math.random() * 1000) + '';
+        page['websiteId'] = webiteId;
         this.pages.push(page);
         return page;
     };
     PageService.prototype.findPagesByWebsiteId = function (websiteId) {
         return this.pages.filter(function (page) {
-            return page.websiteId === websiteId;
+            return page['websiteId'] === websiteId;
         });
     };
     PageService.prototype.findPageById = function (pageId) {
         return this.pages.find(function (page) {
-            return page._id === pageId;
+            return page['_id'] === pageId;
         });
     };
     PageService.prototype.updatePage = function (pageId, page) {
         for (var x = 0; x < this.pages.length; x++) {
-            if (this.pages[x]._id === pageId) {
-                this.pages[x].name = page.name;
-                this.pages[x].description = page.description;
+            if (this.pages[x]['_id'] === pageId) {
+                this.pages[x]['name'] = page.name;
+                this.pages[x]['description'] = page.description;
                 return this.pages[x];
             }
         }
     };
     PageService.prototype.deletePage = function (pageId) {
         for (var x = 0; x < this.pages.length; x++) {
-            if (this.pages[x]._id === pageId) {
+            if (this.pages[x]['_id'] === pageId) {
                 delete this.pages[x];
             }
         }
@@ -2006,36 +2006,36 @@ var UserService = (function () {
         };
     }
     UserService.prototype.createUser = function (user) {
-        user._id = Math.random() + '';
+        user['_id'] = Math.floor(Math.random() * 1000) + '';
         this.users.push(user);
         return user;
     };
     UserService.prototype.findUserById = function (userId) {
         return this.users.find(function (user) {
-            return user._id === userId;
+            return user['_id'] === userId;
         });
     };
     UserService.prototype.findUserByUsername = function (username) {
         for (var x = 0; x < this.users.length; x++) {
-            if (this.users[x].userName === username) {
+            if (this.users[x]['userName'] === username) {
                 return this.users[x];
             }
         }
     };
     UserService.prototype.updateUser = function (userId, user) {
         for (var x = 0; x < this.users.length; x++) {
-            if (this.users[x]._id === userId) {
-                this.users[x].firstName = user.firstName;
-                this.users[x].lastName = user.lastName;
-                this.users[x].userName = user.userName;
-                this.users[x].email = user.email;
+            if (this.users[x]['_id'] === userId) {
+                this.users[x]['firstName'] = user.firstName;
+                this.users[x]['lastName'] = user.lastName;
+                this.users[x]['userName'] = user.userName;
+                this.users[x]['email'] = user.email;
                 return this.users[x];
             }
         }
     };
     UserService.prototype.deleteUser = function (userId) {
         for (var x = 0; x < this.users.length; x++) {
-            if (this.users[x]._id === userId) {
+            if (this.users[x]['_id'] === userId) {
                 delete this.users[x];
             }
         }
@@ -2084,33 +2084,33 @@ var WebsiteService = (function () {
         ];
     }
     WebsiteService.prototype.createWebsite = function (userId, website) {
-        website._id = Math.random() + '';
-        website.developerId = userId;
+        website['_id'] = Math.floor(Math.random() * 1000) + '';
+        website['developerId'] = userId;
         this.websites.push(website);
         return website;
     };
     WebsiteService.prototype.findWebsitesByUser = function (userId) {
         return this.websites.filter(function (website) {
-            return website.developerId === userId;
+            return website['developerId'] === userId;
         });
     };
     WebsiteService.prototype.findWebsiteById = function (websiteId) {
         return this.websites.find(function (website) {
-            return website._id === websiteId;
+            return website['_id'] === websiteId;
         });
     };
     WebsiteService.prototype.updateWebsite = function (websiteId, website) {
         for (var x = 0; x < this.websites.length; x++) {
-            if (this.websites[x]._id === websiteId) {
-                this.websites[x].name = website.name;
-                this.websites[x].description = website.description;
+            if (this.websites[x]['_id'] === websiteId) {
+                this.websites[x]['name'] = website.name;
+                this.websites[x]['description'] = website.description;
                 return this.websites[x];
             }
         }
     };
     WebsiteService.prototype.deleteWebsite = function (websiteId) {
         for (var x = 0; x < this.websites.length; x++) {
-            if (this.websites[x]._id === websiteId) {
+            if (this.websites[x]['_id'] === websiteId) {
                 delete this.websites[x];
             }
         }
@@ -2165,8 +2165,8 @@ var WidgetService = (function () {
         ];
     }
     WidgetService.prototype.createWidget = function (pageId, widget) {
-        widget._id = Math.random() + '';
-        widget.pageId = pageId;
+        widget['_id'] = Math.floor(Math.random() * 1000) + '';
+        widget['pageId'] = pageId;
         this.widgets.push(widget);
         return widget;
     };
@@ -2182,8 +2182,8 @@ var WidgetService = (function () {
     };
     WidgetService.prototype.updateWidget = function (widgetId, widget) {
         for (var x = 0; x < this.widgets.length; x++) {
-            if (this.widgets[x]._id === widgetId) {
-                switch (widget.type) {
+            if (this.widgets[x]['_id'] === widgetId) {
+                switch (widget['type']) {
                     case 'HEADING':
                         this.widgets[x]['size'] = widget['size'];
                         this.widgets[x]['text'] = widget['text'];
@@ -2200,14 +2200,14 @@ var WidgetService = (function () {
                         this.widgets[x]['text'] = widget['text'];
                         break;
                 }
-                this.widgets[x]._id = widgetId;
+                this.widgets[x]['_id'] = widgetId;
                 return this.widgets[x];
             }
         }
     };
     WidgetService.prototype.deleteWidget = function (widgetId) {
         for (var x = 0; x < this.widgets.length; x++) {
-            if (this.widgets[x]._id === widgetId) {
+            if (this.widgets[x]['_id'] === widgetId) {
                 delete this.widgets[x];
             }
         }

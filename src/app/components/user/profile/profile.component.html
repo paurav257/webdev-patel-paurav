@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <!--tick mark-->
     <div class="navbar-brand pull-right right-margin-fix">
-      <a (click)="editProfile()" routerLink="/user/:uid" class="navbar-link">
+      <a (click)="editProfile()" [routerLink]="['/user', userId]" class="navbar-link">
         <span class="glyphicon glyphicon-ok"></span>
       </a>
     </div>
@@ -86,7 +86,7 @@
 <!-- Footer -->
 <nav class="navbar navbar-inverse navbar-fixed-bottom">
   <p class="navbar-brand pull-right">
-    <a routerLink="/user/:uid">
+    <a [routerLink]="['/user', userId]">
       <span class="glyphicon glyphicon-user"></span>
     </a>
   </p>
