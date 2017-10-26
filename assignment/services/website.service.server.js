@@ -28,15 +28,9 @@ module.exports = function (app) {
 
   function findAllWebsitesForUser(req, res) {
     var userId = req.param('userId');
-    // var result = websites.filter(function (website) {
-    //   return website['developerId'] === userId;
-    // });
-    var result = [];
-    for (var x = 0; x < websites.length; x++) {
-      if (websites[x]['developerId'] === userId){
-        result.push(websites[x]);
-      }
-    }
+    var result = websites.filter(function (website) {
+      return website['developerId'] === userId;
+    });
     res.json(result);
   }
 
