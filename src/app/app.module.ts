@@ -28,6 +28,8 @@ import { WebsiteService } from './services/website.service.client';
 import { WidgetService } from './services/widget.service.client';
 import { WidgetEditComponent } from './components/widget/widget-edit/widget-edit.component';
 import { WidgetHtmlComponent } from './components/widget/widget-edit/widget-html/widget-html.component';
+import { SortableDirective } from './directives/sortable.directive';
+import { FlickrImageSearchComponent } from './components/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component';
 
 @NgModule({
   // Declare components here
@@ -50,7 +52,9 @@ import { WidgetHtmlComponent } from './components/widget/widget-edit/widget-html
     WidgetListComponent,
     WidgetYoutubeComponent,
     WidgetEditComponent,
-    WidgetHtmlComponent
+    SortableDirective,
+    WidgetHtmlComponent,
+    FlickrImageSearchComponent
   ],
   imports: [
     BrowserModule,

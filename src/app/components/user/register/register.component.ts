@@ -2,7 +2,6 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {UserService} from '../../../services/user.service.client';
 import {Router} from '@angular/router';
-import {User} from '../../../models/user.model.client';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +18,7 @@ export class RegisterComponent implements OnInit {
   // lastName: String;
   // firstName: String;
   // email: String;
-  user: User;
+  user = {};
   verifyPassword: String;
   errorFlag: Boolean;
   errorMsg: String;
@@ -29,24 +28,26 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user = new User('', '', '', '', '', '');
   }
 
   createUser() {
-    this.user.userName = this.registrationForm.value.userName;
-    this.user.password = this.registrationForm.value.password;
-    this.user.firstName = this.registrationForm.value.firstName;
-    this.user.lastName = this.registrationForm.value.lastName;
-    this.user.email = this.registrationForm.value.email;
+    this.user['userName'] = this.registrationForm.value.userName;
+    this.user['password'] = this.registrationForm.value.password;
+    this.user['firstName'] = this.registrationForm.value.firstName;
+    this.user['lastName'] = this.registrationForm.value.lastName;
+    this.user['email'] = this.registrationForm.value.email;
     this.verifyPassword = this.registrationForm.value.verifyPassword;
 
-    if (this.user.password !== this.verifyPassword) {
+    if (this.user['password'] !== this.verifyPassword) {
       this.errorFlag = true;
       this.errorMsg = 'Passwords are not matching!';
     } else {
-      const user = this.userService.createUser(this.user);
-      if (user) {
-        this.router.navigate([`/user/${user._id}`]);
+      this.userService.createUser(this.user)
+        .subscribe((user: any) => {
+          this.user = user;
+        });
+      if (this.user) {
+        this.router.navigate([`/user/${this.user['_id']}`]);
       } else {
         this.errorFlag = true;
         this.errorMsg = 'Failed to create User!';

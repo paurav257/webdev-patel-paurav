@@ -56,7 +56,7 @@
 </ng-template>
 
 <div class="container-fluid">
-  <form>
+  <form ngNoForm action="{{baseUrl}}/api/upload" method="post" enctype="multipart/form-data">
     <div class="form-group">
       <label for="nameImage">
         Name
@@ -88,7 +88,6 @@
         URL
       </label>
       <input [(ngModel)]="urlImage"
-             required
              name="urlImage"
              type="text"
              class="form-control"
@@ -110,20 +109,24 @@
     </div>
 
     <div class="form-group">
-      <label for="uploadImage">
+      <label for="myFile">
         Upload
       </label>
       <input [(ngModel)]="uploadImage"
              required
-             name="uploadImage"
+             name="myFile"
              type="file"
              class="form-control"
-             id="uploadImage"
+             id="myFile"
              value="100%">
     </div>
 
     <div class="form-group">
-      <button class="form-control btn btn-primary">
+      <input  name="widgetId" value="{{widgetId}}"   style="display: none"/>
+      <input  name="websiteId" value="{{websiteId}}"   style="display: none"/>
+      <input  name="pageId" value="{{pageId}}"   style="display: none"/>
+      <input  name="userId" value="{{userId}}"   style="display: none"/>
+      <button type="submit" class="form-control btn btn-primary">
         Upload Image
       </button>
     </div>
@@ -134,6 +137,8 @@
          [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']">
         Delete
       </a>
+    </div>
+    <div class="form-group">
     </div>
   </form>
 </div>

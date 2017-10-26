@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PageService} from '../../../services/page.service.client';
 import {ActivatedRoute} from '@angular/router';
 
@@ -18,15 +18,22 @@ export class PageEditComponent implements OnInit {
   pageDesc: String;
 
   constructor(private pageService: PageService,
-              private activatedRoutes: ActivatedRoute) { }
+              private activatedRoutes: ActivatedRoute) {
+  }
 
   ngOnInit() {
     this.activatedRoutes.params.subscribe(params => {
       this.userId = params['uid'];
       this.websiteId = params['wid'];
       this.pageId = params['pid'];
-      this.pages = this.pageService.findPagesByWebsiteId(this.websiteId);
-      this.page = this.pageService.findPageById(this.pageId);
+      this.pageService.findPagesByWebsiteId(this.websiteId)
+        .subscribe((pages) => {
+          this.pages = pages;
+        });
+      this.pageService.findPageById(this.pageId)
+        .subscribe((page) => {
+          this.page = page;
+        });
       this.pageName = this.page['name'];
       this.pageDesc = this.page['description'];
     });
@@ -35,7 +42,10 @@ export class PageEditComponent implements OnInit {
   editPage() {
     this.page['name'] = this.pageName;
     this.page['description'] = this.pageDesc;
-    this.page = this.pageService.updatePage(this.pageId, this.page);
+    this.pageService.updatePage(this.pageId, this.page)
+      .subscribe((page) => {
+        this.page = page;
+      });
   }
 
   deletePage() {

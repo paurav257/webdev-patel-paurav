@@ -26,11 +26,10 @@
         Username
       </label>
       <input name="userName"
-             ngModel=""
+             [(ngModel)]="user['userName']"
              type="text"
              class="form-control"
-             id="userName"
-             placeholder={{user.userName}}>
+             id="userName">
     </div>
 
     <div class="form-group">
@@ -38,11 +37,10 @@
         Email address
       </label>
       <input name="email"
-             ngModel=""
+             [(ngModel)]="user['email']"
              type="email"
              class="form-control"
-             id="email"
-             placeholder={{user.email}}>
+             id="email">
     </div>
 
     <div class="form-group">
@@ -50,11 +48,10 @@
         First Name
       </label>
       <input name="firstName"
-             ngModel=""
+             [(ngModel)]="user['firstName']"
              type="text"
              class="form-control"
-             id="first-name"
-             placeholder={{user.firstName}}>
+             id="first-name">
     </div>
 
     <div class="form-group">
@@ -62,11 +59,10 @@
         Last Name
       </label>
       <input name="lastName"
-             ngModel=""
+             [(ngModel)]="user['lastName']"
              type="text"
              class="form-control"
-             id="last-name"
-             placeholder={{user.lastName}}>
+             id="last-name">
     </div>
   </form>
   <div class="form-group">
