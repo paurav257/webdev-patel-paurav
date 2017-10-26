@@ -66,7 +66,7 @@ module.exports = function (app) {
   }
 
   function getSortedWidgets(pageId) {
-    return this.widgets.filter(function (widget) {
+    return widgets.filter(function (widget) {
       return widget['pageId'] == pageId;
     })
       .sort(function (a, b) {
@@ -80,7 +80,7 @@ module.exports = function (app) {
     widget['_id'] = Math.floor(Math.random() * 1000) + '';
     widget['pageId'] = pageId;
     widget['index'] = getHighestIndex(pageId) + 1;
-    this.widgets.push(widget);
+    widgets.push(widget);
     res.json(widget);
   }
 
@@ -92,7 +92,7 @@ module.exports = function (app) {
 
   function findWidgetById(req, res) {
     var widgetId = req.param('widgetId');
-    var widget = this.widgets.find(function (widget) {
+    var widget = widgets.find(function (widget) {
       return widget['_id'] === widgetId;
     });
     res.json(widget);
@@ -102,27 +102,27 @@ module.exports = function (app) {
   function updateWidget(req, res) {
     var widgetId = req.param('widgetId');
     var widget = req.body;
-    for (var x = 0; x < this.widgets.length; x++) {
-      if (this.widgets[x]['_id'] === widgetId) {
+    for (var x = 0; x < widgets.length; x++) {
+      if (widgets[x]['_id'] === widgetId) {
         switch (widget['type']) {
           case 'HEADING':
-            this.widgets[x]['size'] = widget['size'];
-            this.widgets[x]['text'] = widget['text'];
+            widgets[x]['size'] = widget['size'];
+            widgets[x]['text'] = widget['text'];
             break;
           case 'IMAGE':
-            this.widgets[x]['width'] = widget['width'];
-            this.widgets[x]['url'] = widget['url'];
+            widgets[x]['width'] = widget['width'];
+            widgets[x]['url'] = widget['url'];
             break;
           case 'YOUTUBE':
-            this.widgets[x]['width'] = widget['width'];
-            this.widgets[x]['url'] = widget['url'];
+            widgets[x]['width'] = widget['width'];
+            widgets[x]['url'] = widget['url'];
             break;
           case 'HTML':
-            this.widgets[x]['text'] = widget['text'];
+            widgets[x]['text'] = widget['text'];
             break;
         }
-        this.widgets[x]['_id'] = widgetId;
-        res.json(this.widgets[x]);
+        widgets[x]['_id'] = widgetId;
+        res.json(widgets[x]);
         return;
       }
     }
@@ -130,9 +130,9 @@ module.exports = function (app) {
 
   function deleteWidget(req, res) {
     var widgetId = req.param('widgetId');
-    for (var x = 0; x < this.widgets.length; x++) {
-      if (this.widgets[x]['_id'] === widgetId) {
-        delete this.widgets[x];
+    for (var x = 0; x < widgets.length; x++) {
+      if (widgets[x]['_id'] === widgetId) {
+        delete widgets[x];
         res.status(200);
         return;
       }
