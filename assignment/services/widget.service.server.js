@@ -51,6 +51,7 @@ module.exports = function (app) {
       'width': width
     };
     widget.url = '/assets/uploads/' + filename;
+    this.widgets.push(widget);
 
     var callbackUrl = "/user/" + userId + "/website/" + websiteId + '/page/' + pageId + '/widget';
 
