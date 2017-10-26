@@ -48,7 +48,7 @@ export class PageService {
 
   updatePage(pageId, page) {
     const url = this.baseUrl + '/api/page/' + pageId;
-    return this.http.post(url, page)
+    return this.http.put(url, page)
       .map(
         (res: Response) => {
           const data = res.json();

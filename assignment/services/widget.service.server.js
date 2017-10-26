@@ -133,10 +133,12 @@ module.exports = function (app) {
     for (var x = 0; x < this.widgets.length; x++) {
       if (this.widgets[x]['_id'] === widgetId) {
         delete this.widgets[x];
-        res.statusCode(200);
+        res.status(200);
         return;
       }
     }
+    res.status(404);
+    return;
   }
 
   function updatePageOrder(req, res) {

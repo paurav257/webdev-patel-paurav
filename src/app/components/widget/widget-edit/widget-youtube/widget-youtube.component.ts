@@ -50,7 +50,12 @@ export class WidgetYoutubeComponent implements OnInit {
     this.widget['text'] = this.textYoutube;
     this.widget['url'] = this.urlYoutube;
     this.widget['width'] = this.widthYoutube;
-    this.widgetService.createWidget(this.pageId, this.widget);
+    this.widgetService.createWidget(this.pageId, this.widget)
+      .subscribe((data) => {
+        if (data) {
+          this.widget = data;
+        }
+      });
   }
 
   updateWidget() {
@@ -59,11 +64,20 @@ export class WidgetYoutubeComponent implements OnInit {
     this.widget['text'] = this.textYoutube;
     this.widget['url'] = this.urlYoutube;
     this.widget['width'] = this.widthYoutube;
-    this.widgetService.updateWidget(this.widgetId, this.widget);
+    this.widgetService.updateWidget(this.widgetId, this.widget)
+      .subscribe((data) => {
+        if (data) {
+          this.widget = data;
+        }
+      });
   }
 
   deleteWidget() {
-    this.widgetService.deleteWidget(this.widgetId);
+    this.widgetService.deleteWidget(this.widgetId)
+      .subscribe((data) => {
+        if (data === 200) {
+        }
+      });
   }
 
 }

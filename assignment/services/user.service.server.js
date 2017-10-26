@@ -43,7 +43,7 @@ module.exports = function (app) {
     if (user) {
       res.json(user);
     } else {
-      res.sendStatus(401);
+      res.status(401);
     }
     return;
   }
@@ -56,7 +56,7 @@ module.exports = function (app) {
     if (user) {
       res.json(user);
     } else {
-      res.sendStatus(404);
+      res.status(404);
     }
     return;
   }
@@ -107,7 +107,7 @@ module.exports = function (app) {
     for (var x = 0; x < users.length; x++) {
       if (users[x]['_id'] === userId) {
         delete users[x];
-        res.statusCode(200);
+        res.status(200);
         return;
       }
     }

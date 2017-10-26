@@ -53,6 +53,10 @@ export class PageEditComponent implements OnInit {
   }
 
   deletePage() {
-    this.pageService.deletePage(this.pageId);
+    this.pageService.deletePage(this.pageId)
+      .subscribe((data) => {
+        if (data === 200) {
+        }
+      });
   }
 }

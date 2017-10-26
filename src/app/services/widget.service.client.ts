@@ -48,7 +48,7 @@ export class WidgetService {
 
   updateWidget(widgetId, widget) {
     const url = this.baseUrl + '/api/widget/' + widgetId;
-    return this.http.post(url, widget)
+    return this.http.put(url, widget)
       .map(
         (res: Response) => {
           const data = res.json();
@@ -62,7 +62,7 @@ export class WidgetService {
     return this.http.delete(url)
       .map(
         (res: Response) => {
-          const data = res.json();
+          const data = res.status;
           return data;
         }
       );

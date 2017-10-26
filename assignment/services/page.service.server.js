@@ -55,9 +55,9 @@ module.exports = function (app) {
     for (var x = 0; x < this.pages.length; x++) {
       if (this.pages[x]['_id'] === pageId) {
         delete this.pages[x];
-        res.statusCode(200);
+        res.status(200);
       }
     }
-    res.statusCode(404);
+    res.status(404);
   }
 }

@@ -401,7 +401,11 @@ var PageEditComponent = (function () {
         });
     };
     PageEditComponent.prototype.deletePage = function () {
-        this.pageService.deletePage(this.pageId);
+        this.pageService.deletePage(this.pageId)
+            .subscribe(function (data) {
+            if (data === 200) {
+            }
+        });
     };
     return PageEditComponent;
 }());
@@ -1057,7 +1061,11 @@ var WebsiteEditComponent = (function () {
         });
     };
     WebsiteEditComponent.prototype.deleteWebsite = function () {
-        this.websiteService.deleteWebsite(this.websiteId);
+        this.websiteService.deleteWebsite(this.websiteId)
+            .subscribe(function (data) {
+            if (data === 200) {
+            }
+        });
     };
     return WebsiteEditComponent;
 }());
@@ -1130,9 +1138,13 @@ var WebsiteListComponent = (function () {
         var _this = this;
         this.activatedRoutes.params.subscribe(function (params) {
             _this.userId = params['uid'];
+            console.log(_this.userId);
             _this.websiteService.findWebsitesByUser(_this.userId)
-                .subscribe(function (websites) {
-                _this.websites = websites;
+                .subscribe(function (data) {
+                if (data) {
+                    _this.websites = data;
+                    console.log(_this.websites);
+                }
             });
         });
     };
@@ -1469,19 +1481,35 @@ var WidgetHeadingComponent = (function () {
         });
     };
     WidgetHeadingComponent.prototype.createWidget = function () {
+        var _this = this;
         this.widget['widgetType'] = 'HEADING';
         this.widget['text'] = this.textHeader;
         this.widget['size'] = this.sizeHeader;
-        this.widgetService.createWidget(this.pageId, this.widget);
+        this.widgetService.createWidget(this.pageId, this.widget)
+            .subscribe(function (data) {
+            if (data) {
+                _this.widget = data;
+            }
+        });
     };
     WidgetHeadingComponent.prototype.updateWidget = function () {
+        var _this = this;
         this.widget['widgetType'] = 'HEADING';
         this.widget['text'] = this.textHeader;
         this.widget['size'] = this.sizeHeader;
-        this.widgetService.updateWidget(this.widgetId, this.widget);
+        this.widgetService.updateWidget(this.widgetId, this.widget)
+            .subscribe(function (data) {
+            if (data) {
+                _this.widget = data;
+            }
+        });
     };
     WidgetHeadingComponent.prototype.deleteWidget = function () {
-        this.widgetService.deleteWidget(this.widgetId);
+        this.widgetService.deleteWidget(this.widgetId)
+            .subscribe(function (data) {
+            if (data === 200) {
+            }
+        });
     };
     return WidgetHeadingComponent;
 }());
@@ -1569,17 +1597,33 @@ var WidgetHtmlComponent = (function () {
         });
     };
     WidgetHtmlComponent.prototype.createWidget = function () {
+        var _this = this;
         this.widget['widgetType'] = 'HTML';
         this.widget['text'] = this.textHtml;
-        this.widgetService.createWidget(this.pageId, this.widget);
+        this.widgetService.createWidget(this.pageId, this.widget)
+            .subscribe(function (data) {
+            if (data) {
+                _this.widget = data;
+            }
+        });
     };
     WidgetHtmlComponent.prototype.updateWidget = function () {
+        var _this = this;
         this.widget['widgetType'] = 'HTML';
         this.widget['text'] = this.textHtml;
-        this.widgetService.updateWidget(this.widgetId, this.widget);
+        this.widgetService.updateWidget(this.widgetId, this.widget)
+            .subscribe(function (data) {
+            if (data) {
+                _this.widget = data;
+            }
+        });
     };
     WidgetHtmlComponent.prototype.deleteWidget = function () {
-        this.widgetService.deleteWidget(this.widgetId);
+        this.widgetService.deleteWidget(this.widgetId)
+            .subscribe(function (data) {
+            if (data === 200) {
+            }
+        });
     };
     return WidgetHtmlComponent;
 }());
@@ -1734,25 +1778,41 @@ var WidgetImageComponent = (function () {
         });
     };
     WidgetImageComponent.prototype.createWidget = function () {
+        var _this = this;
         this.widget['widgetType'] = 'IMAGE';
         this.widget['text'] = this.textImage;
         this.widget['url'] = this.urlImage;
         this.widget['width'] = this.widthImage;
         this.widget['upload'] = this.uploadImage;
         this.widget['name'] = this.nameImage;
-        this.widgetService.createWidget(this.pageId, this.widget);
+        this.widgetService.createWidget(this.pageId, this.widget)
+            .subscribe(function (data) {
+            if (data) {
+                _this.widget = data;
+            }
+        });
     };
     WidgetImageComponent.prototype.updateWidget = function () {
+        var _this = this;
         this.widget['widgetType'] = 'IMAGE';
         this.widget['text'] = this.textImage;
         this.widget['url'] = this.urlImage;
         this.widget['width'] = this.widthImage;
         this.widget['upload'] = this.uploadImage;
         this.widget['name'] = this.nameImage;
-        this.widgetService.updateWidget(this.widgetId, this.widget);
+        this.widgetService.updateWidget(this.widgetId, this.widget)
+            .subscribe(function (data) {
+            if (data) {
+                _this.widget = data;
+            }
+        });
     };
     WidgetImageComponent.prototype.deleteWidget = function () {
-        this.widgetService.deleteWidget(this.widgetId);
+        this.widgetService.deleteWidget(this.widgetId)
+            .subscribe(function (data) {
+            if (data === 200) {
+            }
+        });
     };
     return WidgetImageComponent;
 }());
@@ -1842,23 +1902,39 @@ var WidgetYoutubeComponent = (function () {
         });
     };
     WidgetYoutubeComponent.prototype.createWidget = function () {
+        var _this = this;
         this.widget['widgetType'] = 'YOUTUBE';
         this.widget['name'] = this.nameYoutube;
         this.widget['text'] = this.textYoutube;
         this.widget['url'] = this.urlYoutube;
         this.widget['width'] = this.widthYoutube;
-        this.widgetService.createWidget(this.pageId, this.widget);
+        this.widgetService.createWidget(this.pageId, this.widget)
+            .subscribe(function (data) {
+            if (data) {
+                _this.widget = data;
+            }
+        });
     };
     WidgetYoutubeComponent.prototype.updateWidget = function () {
+        var _this = this;
         this.widget['widgetType'] = 'YOUTUBE';
         this.widget['name'] = this.nameYoutube;
         this.widget['text'] = this.textYoutube;
         this.widget['url'] = this.urlYoutube;
         this.widget['width'] = this.widthYoutube;
-        this.widgetService.updateWidget(this.widgetId, this.widget);
+        this.widgetService.updateWidget(this.widgetId, this.widget)
+            .subscribe(function (data) {
+            if (data) {
+                _this.widget = data;
+            }
+        });
     };
     WidgetYoutubeComponent.prototype.deleteWidget = function () {
-        this.widgetService.deleteWidget(this.widgetId);
+        this.widgetService.deleteWidget(this.widgetId)
+            .subscribe(function (data) {
+            if (data === 200) {
+            }
+        });
     };
     return WidgetYoutubeComponent;
 }());
@@ -2074,7 +2150,7 @@ var PageService = (function () {
     };
     PageService.prototype.updatePage = function (pageId, page) {
         var url = this.baseUrl + '/api/page/' + pageId;
-        return this.http.post(url, page)
+        return this.http.put(url, page)
             .map(function (res) {
             var data = res.json();
             return data;
@@ -2310,7 +2386,7 @@ var WebsiteService = (function () {
     };
     WebsiteService.prototype.updateWebsite = function (websiteId, website) {
         var url = this.baseUrl + '/api/website/' + websiteId;
-        return this.http.post(url, website)
+        return this.http.put(url, website)
             .map(function (res) {
             var data = res.json();
             return data;
@@ -2391,7 +2467,7 @@ var WidgetService = (function () {
     };
     WidgetService.prototype.updateWidget = function (widgetId, widget) {
         var url = this.baseUrl + '/api/widget/' + widgetId;
-        return this.http.post(url, widget)
+        return this.http.put(url, widget)
             .map(function (res) {
             var data = res.json();
             return data;
@@ -2401,7 +2477,7 @@ var WidgetService = (function () {
         var url = this.baseUrl + '/api/widget/' + widgetId;
         return this.http.delete(url)
             .map(function (res) {
-            var data = res.json();
+            var data = res.status;
             return data;
         });
     };

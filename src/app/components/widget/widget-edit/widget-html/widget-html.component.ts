@@ -42,17 +42,31 @@ export class WidgetHtmlComponent implements OnInit {
   createWidget() {
     this.widget['widgetType'] = 'HTML';
     this.widget['text'] = this.textHtml;
-    this.widgetService.createWidget(this.pageId, this.widget);
+    this.widgetService.createWidget(this.pageId, this.widget)
+      .subscribe((data) => {
+        if (data) {
+          this.widget = data;
+        }
+      });
   }
 
   updateWidget() {
     this.widget['widgetType'] = 'HTML';
     this.widget['text'] = this.textHtml;
-    this.widgetService.updateWidget(this.widgetId, this.widget);
+    this.widgetService.updateWidget(this.widgetId, this.widget)
+      .subscribe((data) => {
+        if (data) {
+          this.widget = data;
+        }
+      });
   }
 
   deleteWidget() {
-    this.widgetService.deleteWidget(this.widgetId);
+    this.widgetService.deleteWidget(this.widgetId)
+      .subscribe((data) => {
+        if (data === 200) {
+        }
+      });
   }
 
 }

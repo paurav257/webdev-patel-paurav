@@ -48,7 +48,7 @@ export class WebsiteService {
 
   updateWebsite(websiteId, website) {
     const url = this.baseUrl + '/api/website/' + websiteId;
-    return this.http.post(url, website)
+    return this.http.put(url, website)
       .map(
         (res: Response) => {
           const data = res.json();

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {WebsiteService} from '../../../services/website.service.client';
 import {ActivatedRoute} from '@angular/router';
+import {advanceActivatedRoute} from "@angular/router/src/router_state";
 
 @Component({
   selector: 'app-website-edit',
@@ -47,6 +48,10 @@ export class WebsiteEditComponent implements OnInit {
   }
 
   deleteWebsite() {
-    this.websiteService.deleteWebsite(this.websiteId);
+    this.websiteService.deleteWebsite(this.websiteId)
+      .subscribe((data) => {
+        if (data === 200) {
+        }
+      });
   }
 }
