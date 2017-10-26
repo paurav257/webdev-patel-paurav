@@ -31,7 +31,10 @@ export class WidgetHeadingComponent implements OnInit {
       this.sizeHeader = '2';
       this.widgetId = params['wgid'];
       if (this.widgetId) {
-        this.widget = this.widgetService.findWidgetById(this.widgetId);
+        this.widgetService.findWidgetById(this.widgetId)
+          .subscribe((widget) => {
+            this.widget = widget;
+          });
         this.widgetEdit = true;
         this.textHeader = this.widget['text'];
         this.sizeHeader = this.widget['size'];

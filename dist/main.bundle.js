@@ -1370,7 +1370,10 @@ var WidgetEditComponent = (function () {
             _this.websiteId = params['wid'];
             _this.pageId = params['pid'];
             _this.widgetId = params['wgid'];
-            _this.widget = _this.widgetService.findWidgetById(_this.widgetId);
+            _this.widgetService.findWidgetById(_this.widgetId)
+                .subscribe(function (widget) {
+                _this.widget = widget;
+            });
         });
     };
     return WidgetEditComponent;
@@ -1450,7 +1453,10 @@ var WidgetHeadingComponent = (function () {
             _this.sizeHeader = '2';
             _this.widgetId = params['wgid'];
             if (_this.widgetId) {
-                _this.widget = _this.widgetService.findWidgetById(_this.widgetId);
+                _this.widgetService.findWidgetById(_this.widgetId)
+                    .subscribe(function (widget) {
+                    _this.widget = widget;
+                });
                 _this.widgetEdit = true;
                 _this.textHeader = _this.widget['text'];
                 _this.sizeHeader = _this.widget['size'];
@@ -1548,7 +1554,10 @@ var WidgetHtmlComponent = (function () {
             _this.textHtml = '<p> Home Page</p>';
             _this.widgetId = params['wgid'];
             if (_this.widgetId) {
-                _this.widget = _this.widgetService.findWidgetById(_this.widgetId);
+                _this.widgetService.findWidgetById(_this.widgetId)
+                    .subscribe(function (widget) {
+                    _this.widget = widget;
+                });
                 _this.widgetEdit = true;
                 _this.textHtml = _this.widget['text'];
             }
@@ -1706,7 +1715,10 @@ var WidgetImageComponent = (function () {
             _this.pageId = params['pid'];
             _this.widgetId = params['wgid'];
             if (_this.widgetId) {
-                _this.widget = _this.widgetService.findWidgetById(_this.widgetId);
+                _this.widgetService.findWidgetById(_this.widgetId)
+                    .subscribe(function (widget) {
+                    _this.widget = widget;
+                });
                 _this.widgetEdit = true;
                 _this.nameImage = _this.widget['name'];
                 _this.textImage = _this.widget['text'];
@@ -1812,7 +1824,10 @@ var WidgetYoutubeComponent = (function () {
             _this.pageId = params['pid'];
             _this.widgetId = params['wgid'];
             if (_this.widgetId) {
-                _this.widget = _this.widgetService.findWidgetById(_this.widgetId);
+                _this.widgetService.findWidgetById(_this.widgetId)
+                    .subscribe(function (widget) {
+                    _this.widget = widget;
+                });
                 _this.widgetEdit = true;
                 _this.nameYoutube = _this.widget['name'];
                 _this.textYoutube = _this.widget['text'];

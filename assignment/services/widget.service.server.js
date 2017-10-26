@@ -50,13 +50,12 @@ module.exports = function (app) {
       'pageId': pageId,
       'width': width
     };
-    widget.url = '/assets/uploads' + filename;
+    widget.url = '/assets/uploads/' + filename;
 
     var callbackUrl = "/user/" + userId + "/website/" + websiteId + '/page/' + pageId + '/widget';
 
     res.redirect(callbackUrl);
   }
-
 
   function getHighestIndex(pageId) {
     var sortedWidgets = getSortedWidgets(pageId);
