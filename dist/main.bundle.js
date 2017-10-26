@@ -376,15 +376,19 @@ var PageEditComponent = (function () {
             _this.websiteId = params['wid'];
             _this.pageId = params['pid'];
             _this.pageService.findPagesByWebsiteId(_this.websiteId)
-                .subscribe(function (pages) {
-                _this.pages = pages;
+                .subscribe(function (data) {
+                if (data) {
+                    _this.pages = data;
+                }
             });
             _this.pageService.findPageById(_this.pageId)
-                .subscribe(function (page) {
-                _this.page = page;
+                .subscribe(function (data) {
+                if (data) {
+                    _this.page = data;
+                    _this.pageName = _this.page['name'];
+                    _this.pageDesc = _this.page['description'];
+                }
             });
-            _this.pageName = _this.page['name'];
-            _this.pageDesc = _this.page['description'];
         });
     };
     PageEditComponent.prototype.editPage = function () {
@@ -1038,9 +1042,9 @@ var WebsiteEditComponent = (function () {
             _this.websiteService.findWebsiteById(_this.websiteId)
                 .subscribe(function (website) {
                 _this.website = website;
+                _this.websiteName = _this.website['name'];
+                _this.websiteDesc = _this.website['description'];
             });
-            _this.websiteName = _this.website['name'];
-            _this.websiteDesc = _this.website['description'];
         });
     };
     WebsiteEditComponent.prototype.updateWebsite = function () {
@@ -1334,7 +1338,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/widget/widget-edit/widget-edit.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div [ngSwitch]=\"widget['widgetType']\">\n\n  <div *ngSwitchCase=\"'HEADING'\">\n    <app-widget-heading></app-widget-heading>\n  </div>\n\n  <div *ngSwitchCase=\"'IMAGE'\">\n    <app-widget-image></app-widget-image>\n  </div>\n\n  <div *ngSwitchCase=\"'YOUTUBE'\">\n    <app-widget-youtube></app-widget-youtube>\n  </div>\n\n  <div *ngSwitchCase=\"'HTML'\">\n    <app-widget-html></app-widget-html>\n  </div>\n\n</div>\n"
+module.exports = "<div [ngSwitch]=\"widgetType\">\n\n  <div *ngSwitchCase=\"'HEADING'\">\n    <app-widget-heading></app-widget-heading>\n  </div>\n\n  <div *ngSwitchCase=\"'IMAGE'\">\n    <app-widget-image></app-widget-image>\n  </div>\n\n  <div *ngSwitchCase=\"'YOUTUBE'\">\n    <app-widget-youtube></app-widget-youtube>\n  </div>\n\n  <div *ngSwitchCase=\"'HTML'\">\n    <app-widget-html></app-widget-html>\n  </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -1370,10 +1374,11 @@ var WidgetEditComponent = (function () {
             _this.websiteId = params['wid'];
             _this.pageId = params['pid'];
             _this.widgetId = params['wgid'];
-            _this.widgetService.findWidgetById(_this.widgetId)
-                .subscribe(function (widget) {
-                _this.widget = widget;
-            });
+        });
+        this.widgetService.findWidgetById(this.widgetId)
+            .subscribe(function (widget) {
+            _this.widget = widget;
+            _this.widgetType = widget['widgetType'];
         });
     };
     return WidgetEditComponent;
@@ -1456,10 +1461,10 @@ var WidgetHeadingComponent = (function () {
                 _this.widgetService.findWidgetById(_this.widgetId)
                     .subscribe(function (widget) {
                     _this.widget = widget;
+                    _this.widgetEdit = true;
+                    _this.textHeader = _this.widget['text'];
+                    _this.sizeHeader = _this.widget['size'];
                 });
-                _this.widgetEdit = true;
-                _this.textHeader = _this.widget['text'];
-                _this.sizeHeader = _this.widget['size'];
             }
         });
     };
@@ -1557,9 +1562,9 @@ var WidgetHtmlComponent = (function () {
                 _this.widgetService.findWidgetById(_this.widgetId)
                     .subscribe(function (widget) {
                     _this.widget = widget;
+                    _this.widgetEdit = true;
+                    _this.textHtml = _this.widget['text'];
                 });
-                _this.widgetEdit = true;
-                _this.textHtml = _this.widget['text'];
             }
         });
     };
@@ -1718,13 +1723,13 @@ var WidgetImageComponent = (function () {
                 _this.widgetService.findWidgetById(_this.widgetId)
                     .subscribe(function (widget) {
                     _this.widget = widget;
+                    _this.widgetEdit = true;
+                    _this.nameImage = _this.widget['name'];
+                    _this.textImage = _this.widget['text'];
+                    _this.urlImage = _this.widget['url'];
+                    _this.widthImage = _this.widget['width'];
+                    _this.uploadImage = _this.widget['upload'];
                 });
-                _this.widgetEdit = true;
-                _this.nameImage = _this.widget['name'];
-                _this.textImage = _this.widget['text'];
-                _this.urlImage = _this.widget['url'];
-                _this.widthImage = _this.widget['width'];
-                _this.uploadImage = _this.widget['upload'];
             }
         });
     };
@@ -1827,12 +1832,12 @@ var WidgetYoutubeComponent = (function () {
                 _this.widgetService.findWidgetById(_this.widgetId)
                     .subscribe(function (widget) {
                     _this.widget = widget;
+                    _this.widgetEdit = true;
+                    _this.nameYoutube = _this.widget['name'];
+                    _this.textYoutube = _this.widget['text'];
+                    _this.urlYoutube = _this.widget['url'];
+                    _this.widthYoutube = _this.widget['width'];
                 });
-                _this.widgetEdit = true;
-                _this.nameYoutube = _this.widget['name'];
-                _this.textYoutube = _this.widget['text'];
-                _this.urlYoutube = _this.widget['url'];
-                _this.widthYoutube = _this.widget['width'];
             }
         });
     };

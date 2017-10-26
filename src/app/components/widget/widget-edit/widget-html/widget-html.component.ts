@@ -32,9 +32,9 @@ export class WidgetHtmlComponent implements OnInit {
         this.widgetService.findWidgetById(this.widgetId)
           .subscribe((widget) => {
             this.widget = widget;
+            this.widgetEdit = true;
+            this.textHtml = this.widget['text'];
           });
-        this.widgetEdit = true;
-        this.textHtml = this.widget['text'];
       }
     });
   }

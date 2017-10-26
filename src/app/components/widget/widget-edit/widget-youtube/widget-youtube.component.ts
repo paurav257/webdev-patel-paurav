@@ -34,12 +34,12 @@ export class WidgetYoutubeComponent implements OnInit {
         this.widgetService.findWidgetById(this.widgetId)
           .subscribe((widget) => {
             this.widget = widget;
+            this.widgetEdit = true;
+            this.nameYoutube = this.widget['name'];
+            this.textYoutube = this.widget['text'];
+            this.urlYoutube = this.widget['url'];
+            this.widthYoutube = this.widget['width'];
           });
-        this.widgetEdit = true;
-        this.nameYoutube = this.widget['name'];
-        this.textYoutube = this.widget['text'];
-        this.urlYoutube = this.widget['url'];
-        this.widthYoutube = this.widget['width'];
       }
     });
   }

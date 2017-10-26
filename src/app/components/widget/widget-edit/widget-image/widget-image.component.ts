@@ -38,13 +38,13 @@ export class WidgetImageComponent implements OnInit {
         this.widgetService.findWidgetById(this.widgetId)
           .subscribe((widget) => {
             this.widget = widget;
+            this.widgetEdit = true;
+            this.nameImage = this.widget['name'];
+            this.textImage = this.widget['text'];
+            this.urlImage = this.widget['url'];
+            this.widthImage = this.widget['width'];
+            this.uploadImage = this.widget['upload'];
           });
-        this.widgetEdit = true;
-        this.nameImage = this.widget['name'];
-        this.textImage = this.widget['text'];
-        this.urlImage = this.widget['url'];
-        this.widthImage = this.widget['width'];
-        this.uploadImage = this.widget['upload'];
       }
     });
   }

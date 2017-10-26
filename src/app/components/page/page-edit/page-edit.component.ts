@@ -27,15 +27,19 @@ export class PageEditComponent implements OnInit {
       this.websiteId = params['wid'];
       this.pageId = params['pid'];
       this.pageService.findPagesByWebsiteId(this.websiteId)
-        .subscribe((pages) => {
-          this.pages = pages;
+        .subscribe((data) => {
+          if (data) {
+            this.pages = data;
+          }
         });
       this.pageService.findPageById(this.pageId)
-        .subscribe((page) => {
-          this.page = page;
+        .subscribe((data) => {
+          if (data) {
+            this.page = data;
+            this.pageName = this.page['name'];
+            this.pageDesc = this.page['description'];
+          }
         });
-      this.pageName = this.page['name'];
-      this.pageDesc = this.page['description'];
     });
   }
 

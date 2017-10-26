@@ -34,10 +34,10 @@ export class WidgetHeadingComponent implements OnInit {
         this.widgetService.findWidgetById(this.widgetId)
           .subscribe((widget) => {
             this.widget = widget;
+            this.widgetEdit = true;
+            this.textHeader = this.widget['text'];
+            this.sizeHeader = this.widget['size'];
           });
-        this.widgetEdit = true;
-        this.textHeader = this.widget['text'];
-        this.sizeHeader = this.widget['size'];
       }
     });
   }

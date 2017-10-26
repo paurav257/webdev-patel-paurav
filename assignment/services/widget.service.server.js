@@ -1,5 +1,9 @@
 module.exports = function (app) {
 
+  var multer = require('multer'); // npm install multer --save
+  var upload = multer({dest: __dirname + '/../../dist/assets/uploads'});
+
+  app.post("/api/upload", upload.single('myFile'), uploadImage);
   app.post('api/page/:pageId/widget', createWidget);
   app.get('/api/page/:pageId/widget', findAllWidgetsForPage);
   app.put('/api/page/:pageId/widget', updatePageOrder);
@@ -7,10 +11,6 @@ module.exports = function (app) {
   app.put('/api/widget/:widgetId', updateWidget);
   app.delete('/api/widget/:widgetId', deleteWidget);
 
-  var multer = require('multer'); // npm install multer --save
-  var upload = multer({dest: __dirname + '/../../dist/assets/uploads'});
-
-  app.post("/api/upload", upload.single('myFile'), uploadImage);
   widgets = [
     {'_id': '123', 'widgetType': 'HEADING', 'pageId': '321', 'size': 2, 'text': 'GIZMODO', 'index': '1'},
     {'_id': '234', 'widgetType': 'HEADING', 'pageId': '321', 'size': 4, 'text': 'Lorem ipsum', 'index': '2'},
@@ -28,7 +28,6 @@ module.exports = function (app) {
   ];
 
   function uploadImage(req, res) {
-
     var widgetId = req.body.widgetId;
     var width = req.body.width;
     var myFile = req.file;
@@ -97,6 +96,7 @@ module.exports = function (app) {
       return widget['_id'] === widgetId;
     });
     res.json(widget);
+    return;
   }
 
   function updateWidget(req, res) {
