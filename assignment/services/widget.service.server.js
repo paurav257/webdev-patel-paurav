@@ -4,7 +4,7 @@ module.exports = function (app) {
   var upload = multer({dest: __dirname + '/../../dist/assets/uploads'});
 
   app.post("/api/upload", upload.single('myFile'), uploadImage);
-  app.post('api/page/:pageId/widget', createWidget);
+  app.post('/api/page/:pageId/widget', createWidget);
   app.get('/api/page/:pageId/widget', findAllWidgetsForPage);
   app.put('/api/page/:pageId/widget', updatePageOrder);
   app.get('/api/widget/:widgetId', findWidgetById);
@@ -59,7 +59,7 @@ module.exports = function (app) {
 
   function getHighestIndex(pageId) {
     var sortedWidgets = getSortedWidgets(pageId);
-    if (sortedWidgetsList.length != 0) {
+    if (sortedWidgets.length != 0) {
       return sortedWidgets[0]['index'];
     }
     return 0;
