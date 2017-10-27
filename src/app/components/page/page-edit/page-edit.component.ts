@@ -47,8 +47,10 @@ export class PageEditComponent implements OnInit {
     this.page['name'] = this.pageName;
     this.page['description'] = this.pageDesc;
     this.pageService.updatePage(this.pageId, this.page)
-      .subscribe((page) => {
-        this.page = page;
+      .subscribe((data) => {
+        if (data) {
+          this.page = data;
+        }
       });
   }
 

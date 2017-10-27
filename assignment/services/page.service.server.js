@@ -38,7 +38,7 @@ module.exports = function (app) {
   }
 
   function updatePage(req, res) {
-    var pageId = req.param('pqgeId');
+    var pageId = req.param('pageId');
     var page = req.body;
     for (var x = 0; x < pages.length; x++) {
       if (pages[x]['_id'] === pageId) {

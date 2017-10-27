@@ -338,7 +338,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/page/page-edit/page-edit.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-inverse navbar-fixed-top\">\n  <div class=\"row container-fluid\">\n    <div class=\"col-sm-4 hidden-xs \">\n      <!--plus sign-->\n      <div class=\"navbar-brand pull-right\">\n        <a [routerLink]=\"['/user', userId, 'website', websiteId, 'page', 'new']\"\n           class=\"navbar-link\">\n          <span class=\"glyphicon glyphicon-plus\"></span>\n        </a>\n      </div>\n      <!--back sign-->\n      <div class=\"navbar-brand pull-left left-margin-fix\">\n        <a [routerLink]=\"['/user', userId, 'website', websiteId, 'page']\"\n          class=\"navbar-link\">\n          <span class=\"glyphicon glyphicon-chevron-left\"></span>\n        </a>\n      </div>\n      <!--heading on the nav bar-->\n      <p class=\"navbar-header pull-left\">\n        <a class=\"navbar-brand \">\n          <b>Pages</b>\n        </a>\n      </p>\n    </div>\n    <div class=\"col-sm-8 col-xs-12\">\n      <!--tick mark-->\n      <div class=\"navbar-brand pull-right right-margin-fix\">\n        <a [routerLink]=\"['/user', userId, 'website', websiteId, 'page']\"\n          class=\"navbar-link\">\n          <span class=\"glyphicon glyphicon-ok-sign\"></span>\n        </a>\n      </div>\n      <!--tick mark-->\n      <div class=\"navbar-brand pull-left visible-xs left-margin-fix\">\n        <a (click)=\"editPage()\"\n           [routerLink]=\"['/user', userId, 'website', websiteId, 'page']\"\n          class=\"navbar-link\">\n          <span class=\"glyphicon glyphicon-chevron-left\"></span>\n        </a>\n      </div>\n      <!--heading on the nav bar-->\n      <p class=\"navbar-header pull-left\">\n        <a class=\"navbar-brand \">\n          <b>Edit Pages</b>\n        </a>\n      </p>\n    </div>\n  </div>\n</nav>\n\n<div class=\"row container-fluid \">\n  <div class=\"col-sm-4 hidden-xs\">\n    <ul class=\"list-group\">\n      <div *ngFor=\"let page of pages\">\n        <li class=\"list-group-item\">\n          <a [routerLink]=\"['widget']\">\n            {{page.name}}\n          </a>\n          <a [routerLink]=\"['/user', userId, 'website', websiteId, 'page', page._id]\"\n             class=\"pull-right\">\n            <span class=\"glyphicon glyphicon-cog\"></span>\n          </a>\n        </li>\n      </div>\n    </ul>\n  </div>\n  <div class=\"col-sm-8 col-xs-12\">\n    <form>\n      <div class=\"form-group\">\n        <label for=\"pageName\">\n          Page Name\n        </label>\n        <input [(ngModel)]=\"pageName\"\n               name=\"pageName\"\n               required\n               type=\"text\"\n               class=\"form-control mr-5\"\n               id=\"pageName\"\n               placeholder=\"pageName\">\n      </div>\n      <div class=\"form-group\">\n        <label for=\"pageDesc\">\n          Page Description\n        </label>\n        <input [(ngModel)]=\"pageDesc\"\n               name=\"pageDesc\"\n               required=\"\"\n               type=\"text\"\n               class=\"form-control mr-5\"\n               id=\"pageDesc\"\n               placeholder=\"Title\">\n      </div>\n      <div class=\"form-group\">\n        <a class=\"btn btn-danger btn-block \"\n           (click)=\"deletePage()\"\n           [routerLink]=\"['/user', userId, 'website', websiteId, 'page']\">\n          Delete\n        </a>\n      </div>\n    </form>\n  </div>\n</div>\n\n<!-- Footer -->\n<nav class=\"navbar navbar-inverse navbar-fixed-bottom\">\n  <p class=\"navbar-brand pull-right\">\n    <a [routerLink]=\"['/user', userId]\">\n      <span class=\"glyphicon glyphicon-user\"></span>\n    </a>\n  </p>\n</nav>\n"
+module.exports = "<nav class=\"navbar navbar-inverse navbar-fixed-top\">\n  <div class=\"row container-fluid\">\n    <div class=\"col-sm-4 hidden-xs \">\n      <!--plus sign-->\n      <div class=\"navbar-brand pull-right\">\n        <a [routerLink]=\"['/user', userId, 'website', websiteId, 'page', 'new']\"\n           class=\"navbar-link\">\n          <span class=\"glyphicon glyphicon-plus\"></span>\n        </a>\n      </div>\n      <!--back sign-->\n      <div class=\"navbar-brand pull-left left-margin-fix\">\n        <a [routerLink]=\"['/user', userId, 'website', websiteId, 'page']\"\n          class=\"navbar-link\">\n          <span class=\"glyphicon glyphicon-chevron-left\"></span>\n        </a>\n      </div>\n      <!--heading on the nav bar-->\n      <p class=\"navbar-header pull-left\">\n        <a class=\"navbar-brand \">\n          <b>Pages</b>\n        </a>\n      </p>\n    </div>\n    <div class=\"col-sm-8 col-xs-12\">\n      <!--tick mark-->\n      <div class=\"navbar-brand pull-right right-margin-fix\">\n        <a (click)=\"editPage()\"\n           [routerLink]=\"['/user', userId, 'website', websiteId, 'page']\"\n          class=\"navbar-link\">\n          <span class=\"glyphicon glyphicon-ok-sign\"></span>\n        </a>\n      </div>\n      <!--tick mark-->\n      <div class=\"navbar-brand pull-left visible-xs left-margin-fix\">\n        <a [routerLink]=\"['/user', userId, 'website', websiteId, 'page']\"\n          class=\"navbar-link\">\n          <span class=\"glyphicon glyphicon-chevron-left\"></span>\n        </a>\n      </div>\n      <!--heading on the nav bar-->\n      <p class=\"navbar-header pull-left\">\n        <a class=\"navbar-brand \">\n          <b>Edit Pages</b>\n        </a>\n      </p>\n    </div>\n  </div>\n</nav>\n\n<div class=\"row container-fluid \">\n  <div class=\"col-sm-4 hidden-xs\">\n    <ul class=\"list-group\">\n      <div *ngFor=\"let page of pages\">\n        <li class=\"list-group-item\">\n          <a [routerLink]=\"['widget']\">\n            {{page.name}}\n          </a>\n          <a [routerLink]=\"['/user', userId, 'website', websiteId, 'page', page._id]\"\n             class=\"pull-right\">\n            <span class=\"glyphicon glyphicon-cog\"></span>\n          </a>\n        </li>\n      </div>\n    </ul>\n  </div>\n  <div class=\"col-sm-8 col-xs-12\">\n    <form>\n      <div class=\"form-group\">\n        <label for=\"pageName\">\n          Page Name\n        </label>\n        <input [(ngModel)]=\"pageName\"\n               name=\"pageName\"\n               required\n               type=\"text\"\n               class=\"form-control mr-5\"\n               id=\"pageName\"\n               placeholder=\"pageName\">\n      </div>\n      <div class=\"form-group\">\n        <label for=\"pageDesc\">\n          Page Description\n        </label>\n        <input [(ngModel)]=\"pageDesc\"\n               name=\"pageDesc\"\n               required=\"\"\n               type=\"text\"\n               class=\"form-control mr-5\"\n               id=\"pageDesc\"\n               placeholder=\"Title\">\n      </div>\n      <div class=\"form-group\">\n        <a class=\"btn btn-danger btn-block \"\n           (click)=\"deletePage()\"\n           [routerLink]=\"['/user', userId, 'website', websiteId, 'page']\">\n          Delete\n        </a>\n      </div>\n    </form>\n  </div>\n</div>\n\n<!-- Footer -->\n<nav class=\"navbar navbar-inverse navbar-fixed-bottom\">\n  <p class=\"navbar-brand pull-right\">\n    <a [routerLink]=\"['/user', userId]\">\n      <span class=\"glyphicon glyphicon-user\"></span>\n    </a>\n  </p>\n</nav>\n"
 
 /***/ }),
 
@@ -395,9 +395,12 @@ var PageEditComponent = (function () {
         var _this = this;
         this.page['name'] = this.pageName;
         this.page['description'] = this.pageDesc;
+        console.log('agavrb');
         this.pageService.updatePage(this.pageId, this.page)
-            .subscribe(function (page) {
-            _this.page = page;
+            .subscribe(function (data) {
+            if (data) {
+                _this.page = data;
+            }
         });
     };
     PageEditComponent.prototype.deletePage = function () {
@@ -1386,11 +1389,11 @@ var WidgetEditComponent = (function () {
             _this.websiteId = params['wid'];
             _this.pageId = params['pid'];
             _this.widgetId = params['wgid'];
-        });
-        this.widgetService.findWidgetById(this.widgetId)
-            .subscribe(function (widget) {
-            _this.widget = widget;
-            _this.widgetType = widget['widgetType'];
+            _this.widgetService.findWidgetById(_this.widgetId)
+                .subscribe(function (widget) {
+                _this.widget = widget;
+                _this.widgetType = widget['widgetType'];
+            });
         });
     };
     return WidgetEditComponent;
@@ -2150,6 +2153,7 @@ var PageService = (function () {
     };
     PageService.prototype.updatePage = function (pageId, page) {
         var url = this.baseUrl + '/api/page/' + pageId;
+        console.log(url);
         return this.http.put(url, page)
             .map(function (res) {
             var data = res.json();
