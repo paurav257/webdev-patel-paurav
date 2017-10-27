@@ -395,7 +395,6 @@ var PageEditComponent = (function () {
         var _this = this;
         this.page['name'] = this.pageName;
         this.page['description'] = this.pageDesc;
-        console.log('agavrb');
         this.pageService.updatePage(this.pageId, this.page)
             .subscribe(function (data) {
             if (data) {
@@ -753,7 +752,6 @@ var LoginComponent = (function () {
         this.userService.findUserByCredentials(this.username, this.password)
             .subscribe(function (user) {
             _this.errorFlag = false;
-            console.log(user);
             _this.router.navigate(["/user/" + user._id]);
         }, function (error) {
             _this.errorFlag = true;
@@ -841,7 +839,6 @@ var ProfileComponent = (function () {
                 .subscribe(function (user) {
                 _this.user = user;
             });
-            console.log(_this.user);
             if (!_this.user) {
                 _this.router.navigate(['/login']);
             }
@@ -1141,12 +1138,10 @@ var WebsiteListComponent = (function () {
         var _this = this;
         this.activatedRoutes.params.subscribe(function (params) {
             _this.userId = params['uid'];
-            console.log(_this.userId);
             _this.websiteService.findWebsitesByUser(_this.userId)
                 .subscribe(function (data) {
                 if (data) {
                     _this.websites = data;
-                    console.log(_this.websites);
                 }
             });
         });

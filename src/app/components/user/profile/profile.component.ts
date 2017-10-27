@@ -29,7 +29,6 @@ export class ProfileComponent implements OnInit {
         .subscribe((user: any) => {
           this.user = user;
         });
-      console.log(this.user);
       if (!this.user) {
         this.router.navigate(['/login']);
       }
