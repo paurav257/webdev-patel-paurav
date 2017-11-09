@@ -5,7 +5,6 @@
       <!--tick mark-->
       <div class="navbar-brand pull-right right-margin-fix">
         <a (click)="updateWidget()"
-           [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']"
            class="navbar-link">
           <span class="glyphicon glyphicon-ok-sign"></span>
         </a>
@@ -32,7 +31,6 @@
       <!--tick mark-->
       <div class="navbar-brand pull-right right-margin-fix">
         <a (click)="createWidget()"
-           [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget', 'new']"
            class="navbar-link">
           <span class="glyphicon glyphicon-ok-sign"></span>
         </a>
@@ -111,8 +109,7 @@
 
     <div class="form-group">
       <a (click)="deleteWidget()"
-         class="btn btn-danger btn-block "
-         [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']">
+         class="btn btn-danger btn-block ">
         Delete
       </a>
     </div>

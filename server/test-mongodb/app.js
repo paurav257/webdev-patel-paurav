@@ -2,8 +2,7 @@ module.exports = function (app) {
 
   app.get('/api', (req, res) => {
     res.send('App works');
-})
-  ;
+});
   app.get("/api/test", findAllMessages);
   app.post("/api/test", createMessage);
   app.delete("/api/test/:id", deleteMessage);
@@ -11,7 +10,7 @@ module.exports = function (app) {
 
   // var connectionString = 'mongodb://webappmaker:webappmaker@ds163181.mlab.com:63181/webappmaker';
 
-  var connectionString = 'mongodb://127.0.0.1:27017/test'; // for local
+  var connectionString = 'mongodb://127.0.0.1:27017/test2'; // for local
   if (process.env.MLAB_USERNAME_WEBDEV) { // check if running remotely
     var username = process.env.MLAB_USERNAME_WEBDEV; // get from environment
     var password = process.env.MLAB_PASSWORD_WEBDEV;

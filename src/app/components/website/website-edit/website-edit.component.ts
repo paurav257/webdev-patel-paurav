@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {WebsiteService} from '../../../services/website.service.client';
-import {ActivatedRoute} from '@angular/router';
-import {advanceActivatedRoute} from "@angular/router/src/router_state";
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-website-edit',
@@ -18,7 +17,8 @@ export class WebsiteEditComponent implements OnInit {
   websiteDesc: String;
 
   constructor(private websiteService: WebsiteService,
-              private activatedRoutes: ActivatedRoute) {
+              private activatedRoutes: ActivatedRoute,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -44,6 +44,7 @@ export class WebsiteEditComponent implements OnInit {
     this.websiteService.updateWebsite(this.websiteId, this.website)
       .subscribe((website) => {
         this.website = website;
+        this.router.navigate(['/user', this.userId, 'website']);
       });
   }
 
@@ -51,6 +52,7 @@ export class WebsiteEditComponent implements OnInit {
     this.websiteService.deleteWebsite(this.websiteId)
       .subscribe((data) => {
         if (data === 200) {
+          this.router.navigate(['/user', this.userId, 'website']);
         }
       });
   }

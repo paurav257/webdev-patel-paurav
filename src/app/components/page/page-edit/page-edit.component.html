@@ -26,7 +26,6 @@
       <!--tick mark-->
       <div class="navbar-brand pull-right right-margin-fix">
         <a (click)="editPage()"
-           [routerLink]="['/user', userId, 'website', websiteId, 'page']"
           class="navbar-link">
           <span class="glyphicon glyphicon-ok-sign"></span>
         </a>
@@ -92,8 +91,7 @@
       </div>
       <div class="form-group">
         <a class="btn btn-danger btn-block "
-           (click)="deletePage()"
-           [routerLink]="['/user', userId, 'website', websiteId, 'page']">
+           (click)="deletePage()">
           Delete
         </a>
       </div>

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {WidgetService} from '../../../services/widget.service.client';
 import {ActivatedRoute} from '@angular/router';
 import {DomSanitizer} from '@angular/platform-browser';
+import {SortableDirective} from '../../../directives/sortable.directive';
 
 @Component({
   selector: 'app-widget-list',
@@ -35,5 +36,16 @@ export class WidgetListComponent implements OnInit {
 
   safeUrl(url: string) {
     return this.domSanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+
+  updatePosition(event: Object) {
+    this.widgetService.updateWidgetPosition(this.pageId, event['startIndex'], event['endIndex'])
+      .subscribe((data) => {
+        if (data && data.success === true) {
+          console.log('success');
+        }else {
+          console.log('error in updating position');
+        }
+      });
   }
 }

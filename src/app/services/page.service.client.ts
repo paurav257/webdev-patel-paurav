@@ -52,7 +52,7 @@ export class PageService {
     return this.http.put(url, page)
       .map(
         (res: Response) => {
-          const data = res.json();
+          const data = res.status;
           return data;
         }
       );
@@ -63,7 +63,7 @@ export class PageService {
     return this.http.delete(url)
       .map(
         (res: Response) => {
-          const data = res.json();
+          const data = res.status;
           return data;
         }
       );

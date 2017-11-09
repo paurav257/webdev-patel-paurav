@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {WidgetService} from '../../../../services/widget.service.client';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {environment} from '../../../../../environments/environment';
 
 @Component({
@@ -23,7 +23,8 @@ export class WidgetImageComponent implements OnInit {
   widget = {};
 
   constructor(private widgetService: WidgetService,
-              private activatedRoutes: ActivatedRoute) {
+              private activatedRoutes: ActivatedRoute,
+              private router: Router) {
   }
 
   baseUrl = environment.baseUrl;
@@ -50,7 +51,7 @@ export class WidgetImageComponent implements OnInit {
   }
 
   createWidget() {
-    this.widget['widgetType'] = 'IMAGE';
+    this.widget['type'] = 'IMAGE';
     this.widget['text'] = this.textImage;
     this.widget['url'] = this.urlImage;
     this.widget['width'] = this.widthImage;
@@ -60,12 +61,13 @@ export class WidgetImageComponent implements OnInit {
       .subscribe((data) => {
         if (data) {
           this.widget = data;
+          this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget']);
         }
       });
   }
 
   updateWidget() {
-    this.widget['widgetType'] = 'IMAGE';
+    this.widget['type'] = 'IMAGE';
     this.widget['text'] = this.textImage;
     this.widget['url'] = this.urlImage;
     this.widget['width'] = this.widthImage;
@@ -75,6 +77,7 @@ export class WidgetImageComponent implements OnInit {
       .subscribe((data) => {
         if (data) {
           this.widget = data;
+          this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget']);
         }
       });
   }
@@ -83,6 +86,7 @@ export class WidgetImageComponent implements OnInit {
     this.widgetService.deleteWidget(this.widgetId)
       .subscribe((data) => {
         if (data === 200) {
+          this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget']);
         }
       });
   }

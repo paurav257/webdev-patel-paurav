@@ -21,6 +21,8 @@ import {WidgetListComponent} from './components/widget/widget-list/widget-list.c
 import {WidgetYoutubeComponent} from './components/widget/widget-edit/widget-youtube/widget-youtube.component';
 import {WidgetEditComponent} from './components/widget/widget-edit/widget-edit.component';
 import {WidgetHtmlComponent} from './components/widget/widget-edit/widget-html/widget-html.component';
+import {FlickrImageSearchComponent} from './components/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component';
+import {WidgetTextComponent} from './components/widget/widget-edit/widget-text/widget-text.component';
 
 
 const APP_ROUTES: Routes = [
@@ -41,7 +43,9 @@ const APP_ROUTES: Routes = [
   {path: 'user/:uid/website/:wid/page/:pid/widget/new/heading', component: WidgetHeadingComponent},
   {path: 'user/:uid/website/:wid/page/:pid/widget/new/youtube', component: WidgetYoutubeComponent},
   {path: 'user/:uid/website/:wid/page/:pid/widget/new/image', component: WidgetImageComponent},
-  {path: 'user/:uid/website/:wid/page/:pid/widget/new/html', component: WidgetHtmlComponent}
+  {path: 'user/:uid/website/:wid/page/:pid/widget/new/html', component: WidgetHtmlComponent},
+  {path: 'user/:uid/website/:wid/page/:pid/widget/new/image/search', component: FlickrImageSearchComponent },
+  {path: 'user/:uid/website/:wid/page/:pid/widget/new/text', component: WidgetTextComponent}
 ];
 
 // Export the routes as module providers

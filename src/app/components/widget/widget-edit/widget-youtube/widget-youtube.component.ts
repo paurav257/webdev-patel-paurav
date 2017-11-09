@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {WidgetService} from '../../../../services/widget.service.client';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-widget-youtube',
@@ -21,7 +21,8 @@ export class WidgetYoutubeComponent implements OnInit {
   widget = {};
 
   constructor(private widgetService: WidgetService,
-              private activatedRoutes: ActivatedRoute) {
+              private activatedRoutes: ActivatedRoute,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -45,7 +46,7 @@ export class WidgetYoutubeComponent implements OnInit {
   }
 
   createWidget() {
-    this.widget['widgetType'] = 'YOUTUBE';
+    this.widget['type'] = 'YOUTUBE';
     this.widget['name'] = this.nameYoutube;
     this.widget['text'] = this.textYoutube;
     this.widget['url'] = this.urlYoutube;
@@ -54,12 +55,13 @@ export class WidgetYoutubeComponent implements OnInit {
       .subscribe((data) => {
         if (data) {
           this.widget = data;
+          this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget', 'new']);
         }
       });
   }
 
   updateWidget() {
-    this.widget['widgetType'] = 'YOUTUBE';
+    this.widget['type'] = 'YOUTUBE';
     this.widget['name'] = this.nameYoutube;
     this.widget['text'] = this.textYoutube;
     this.widget['url'] = this.urlYoutube;
@@ -68,6 +70,7 @@ export class WidgetYoutubeComponent implements OnInit {
       .subscribe((data) => {
         if (data) {
           this.widget = data;
+          this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget']);
         }
       });
   }
@@ -76,6 +79,7 @@ export class WidgetYoutubeComponent implements OnInit {
     this.widgetService.deleteWidget(this.widgetId)
       .subscribe((data) => {
         if (data === 200) {
+          this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget']);
         }
       });
   }

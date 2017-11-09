@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {WebsiteService} from '../../../services/website.service.client';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
 
 @Component({
@@ -20,7 +20,8 @@ export class WebsiteNewComponent implements OnInit {
   websiteDesc: String;
 
   constructor(private websiteService: WebsiteService,
-              private activatedRoutes: ActivatedRoute) {
+              private activatedRoutes: ActivatedRoute,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -40,6 +41,7 @@ export class WebsiteNewComponent implements OnInit {
     this.websiteService.createWebsite(this.userId, this.website)
       .subscribe((website) => {
         this.website = website;
+        this.router.navigate(['/user', this.userId, 'website']);
       });
   }
 }

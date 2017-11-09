@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -12,7 +12,8 @@ export class WidgetChooseComponent implements OnInit {
   websiteId: String;
   pageId: String;
 
-  constructor(private activatedRoutes: ActivatedRoute) { }
+  constructor(private activatedRoutes: ActivatedRoute) {
+  }
 
   ngOnInit() {
     this.activatedRoutes.params.subscribe(params => {
@@ -21,5 +22,4 @@ export class WidgetChooseComponent implements OnInit {
       this.pageId = params['pid'];
     });
   }
-
 }

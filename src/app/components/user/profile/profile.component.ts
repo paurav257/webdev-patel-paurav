@@ -44,7 +44,10 @@ export class ProfileComponent implements OnInit {
       this.profileForm.value.firstName : this.user['firstName'];
     this.user['lastName '] = this.profileForm.value.lastName.length > 0 ?
       this.profileForm.value.lastName : this.user['lastName'];
-    this.userService.updateUser(this.userId, this.user);
-    this.router.navigate([`/user/${this.userId}`]);
+    this.userService.updateUser(this.userId, this.user)
+      .subscribe((user: any) => {
+        this.user = user;
+        this.router.navigate([`/user/${this.userId}`]);
+      });
   }
 }

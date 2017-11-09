@@ -45,13 +45,13 @@ export class RegisterComponent implements OnInit {
       this.userService.createUser(this.user)
         .subscribe((user: any) => {
           this.user = user;
+          if (this.user) {
+            this.router.navigate([`/user/${this.user['_id']}`]);
+          } else {
+            this.errorFlag = true;
+            this.errorMsg = 'Failed to create User!';
+          }
         });
-      if (this.user) {
-        this.router.navigate([`/user/${this.user['_id']}`]);
-      } else {
-        this.errorFlag = true;
-        this.errorMsg = 'Failed to create User!';
-      }
     }
   }
 }
