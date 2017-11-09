@@ -61,7 +61,8 @@ export class WidgetImageComponent implements OnInit {
       .subscribe((data) => {
         if (data) {
           this.widget = data;
-          this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget']);
+          this.router.navigate(['/user', this.userId, 'website',
+            this.websiteId, 'page', this.pageId, 'widget']);
         }
       });
   }
@@ -77,7 +78,8 @@ export class WidgetImageComponent implements OnInit {
       .subscribe((data) => {
         if (data) {
           this.widget = data;
-          this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget']);
+          this.router.navigate(['/user', this.userId, 'website',
+            this.websiteId, 'page', this.pageId, 'widget']);
         }
       });
   }
@@ -86,7 +88,8 @@ export class WidgetImageComponent implements OnInit {
     this.widgetService.deleteWidget(this.widgetId)
       .subscribe((data) => {
         if (data === 200) {
-          this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget']);
+          this.router.navigate(['/user', this.userId, 'website',
+            this.websiteId, 'page', this.pageId, 'widget']);
         }
       });
   }

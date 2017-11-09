@@ -10,7 +10,7 @@ module.exports = function (app, userModel) {
     var userName = req.query['userName'];
     var password = req.query['password'];
     userModel
-      .findUserByCredentials(userName)
+      .findUserByCredentials(userName, password)
       .then(function(user){
         if(user){
           res.json(user);

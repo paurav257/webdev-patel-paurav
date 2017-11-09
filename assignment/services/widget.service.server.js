@@ -28,25 +28,35 @@ module.exports = function (app, widgetModel) {
     var mimetype = myFile.mimetype;
 
     widget = {
-      '_id': widgetId,
       'widgetType': 'IMAGE',
       'pageId': pageId,
       'width': width
     };
     widget.url = '/assets/uploads/' + filename;
 
-    widgetModel
-      .updateWidget(widgetId, widget)
-      .then(function (resp) {
-        if(resp.ok === 1 && resp.n === 1) {
-          var callbackUrl = "/user/" + userId + "/website/" + websiteId + '/page/' + pageId + '/widget';
-          res.redirect(callbackUrl);
-        } else {
-          res.sendStatus(404);
-        }
-      }, function (err) {
-        res.status(500).send(err);
-      });
+    if (widgetId === '') {
+      widgetModel
+        .createWidget(pageId, widget)
+        .then(function (resp) {
+          res.sendStatus(resp);
+        }, function (err) {
+          res.status(500).send(err);
+        });
+
+    } else {
+      widgetModel
+        .updateWidget(widgetId, widget)
+        .then(function (resp) {
+          if (resp.ok === 1 && resp.n === 1) {
+            var callbackUrl = "/user/" + userId + "/website/" + websiteId + '/page/' + pageId + '/widget';
+            res.redirect(callbackUrl);
+          } else {
+            res.sendStatus(404);
+          }
+        }, function (err) {
+          res.status(500).send(err);
+        });
+    }
   }
 
   function createWidget(req, res) {
@@ -89,7 +99,7 @@ module.exports = function (app, widgetModel) {
     widgetModel
       .updateWidget(widgetId, widget)
       .then(function (resp) {
-        if(resp.ok === 1 && resp.n === 1) {
+        if (resp.ok === 1 && resp.n === 1) {
           res.json(resp);
         } else {
           res.sendStatus(404);

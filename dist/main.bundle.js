@@ -1878,7 +1878,8 @@ var WidgetImageComponent = (function () {
             .subscribe(function (data) {
             if (data) {
                 _this.widget = data;
-                _this.router.navigate(['/user', _this.userId, 'website', _this.websiteId, 'page', _this.pageId, 'widget']);
+                _this.router.navigate(['/user', _this.userId, 'website',
+                    _this.websiteId, 'page', _this.pageId, 'widget']);
             }
         });
     };
@@ -1894,7 +1895,8 @@ var WidgetImageComponent = (function () {
             .subscribe(function (data) {
             if (data) {
                 _this.widget = data;
-                _this.router.navigate(['/user', _this.userId, 'website', _this.websiteId, 'page', _this.pageId, 'widget']);
+                _this.router.navigate(['/user', _this.userId, 'website',
+                    _this.websiteId, 'page', _this.pageId, 'widget']);
             }
         });
     };
@@ -1903,7 +1905,8 @@ var WidgetImageComponent = (function () {
         this.widgetService.deleteWidget(this.widgetId)
             .subscribe(function (data) {
             if (data === 200) {
-                _this.router.navigate(['/user', _this.userId, 'website', _this.websiteId, 'page', _this.pageId, 'widget']);
+                _this.router.navigate(['/user', _this.userId, 'website',
+                    _this.websiteId, 'page', _this.pageId, 'widget']);
             }
         });
     };

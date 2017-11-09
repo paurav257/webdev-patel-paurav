@@ -27,12 +27,12 @@ module.exports = function () {
   }
 
   function findUserByUsername(username) {
-    return UserModel.findOne({username: username});
+    return UserModel.findOne({userName: username});
   }
 
   function findUserByCredentials(_username, _password) {
     return UserModel.findOne({
-      username: _username,
+      userName: _username,
       password: _password
     });
   }
