@@ -775,6 +775,7 @@ var LoginComponent = (function () {
             _this.router.navigate(["/user/" + user._id]);
         }, function (error) {
             _this.errorFlag = true;
+            _this.errorMsg = error;
         });
     };
     return LoginComponent;
@@ -1764,6 +1765,7 @@ var FlickrImageSearchComponent = (function () {
         var url = 'https://farm' + photo.farm + '.staticflickr.com/' + photo.server;
         url += '/' + photo.id + '_' + photo.secret + '_b.jpg';
         var widget = {
+            type: 'IMAGE',
             pageId: this.pageId,
             url: url
         };
