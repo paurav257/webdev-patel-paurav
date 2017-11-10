@@ -28,17 +28,17 @@ module.exports = function (app, widgetModel) {
     var mimetype = myFile.mimetype;
 
     widget = {
-      'widgetType': 'IMAGE',
-      'pageId': pageId,
+      'type': 'IMAGE',
       'width': width
     };
     widget.url = '/assets/uploads/' + filename;
+    var callbackUrl = "/user/" + userId + "/website/" + websiteId + '/page/' + pageId + '/widget';
 
     if (widgetId === '') {
       widgetModel
         .createWidget(pageId, widget)
         .then(function (resp) {
-          res.sendStatus(resp);
+          res.redirect(callbackUrl);
         }, function (err) {
           res.status(500).send(err);
         });
@@ -48,7 +48,6 @@ module.exports = function (app, widgetModel) {
         .updateWidget(widgetId, widget)
         .then(function (resp) {
           if (resp.ok === 1 && resp.n === 1) {
-            var callbackUrl = "/user/" + userId + "/website/" + websiteId + '/page/' + pageId + '/widget';
             res.redirect(callbackUrl);
           } else {
             res.sendStatus(404);

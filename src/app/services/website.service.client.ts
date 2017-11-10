@@ -51,7 +51,7 @@ export class WebsiteService {
     return this.http.put(url, website)
       .map(
         (res: Response) => {
-          const data = res.json();
+          const data = res.status;
           return data;
         }
       );
@@ -62,7 +62,7 @@ export class WebsiteService {
     return this.http.delete(url)
       .map(
         (res: Response) => {
-          const data = res.json();
+          const data = res.status;
           return data;
         }
       );

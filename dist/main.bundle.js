@@ -2662,7 +2662,7 @@ var WebsiteService = (function () {
         var url = this.baseUrl + '/api/website/' + websiteId;
         return this.http.put(url, website)
             .map(function (res) {
-            var data = res.json();
+            var data = res.status;
             return data;
         });
     };
@@ -2670,7 +2670,7 @@ var WebsiteService = (function () {
         var url = this.baseUrl + '/api/website/' + websiteId;
         return this.http.delete(url)
             .map(function (res) {
-            var data = res.json();
+            var data = res.status;
             return data;
         });
     };
