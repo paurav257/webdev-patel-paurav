@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {UserService} from '../../../services/user.service.client';
 import {Router} from '@angular/router';
+import {SharedService} from '../../../services/shared.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
   errorMsg: String;
 
   constructor(private userService: UserService,
-              private router: Router) {
+              private router: Router,
+              private sharedService: SharedService) {
   }
 
   ngOnInit() {
@@ -27,10 +29,11 @@ export class LoginComponent implements OnInit {
   login() {
     this.username = this.loginForm.value.username;
     this.password = this.loginForm.value.password;
-    this.userService.findUserByCredentials(this.username, this.password)
+    this.userService.login(this.username, this.password)
       .subscribe(
         (user: any) => {
           this.errorFlag = false;
+          this.sharedService.user = user;
           this.router.navigate([`/user/${user._id}`]);
         },
         (error: any) => {

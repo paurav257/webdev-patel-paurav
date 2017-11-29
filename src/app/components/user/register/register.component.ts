@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {UserService} from '../../../services/user.service.client';
 import {Router} from '@angular/router';
+import {SharedService} from '../../../services/shared.service';
 
 @Component({
   selector: 'app-register',
@@ -24,7 +25,8 @@ export class RegisterComponent implements OnInit {
   errorMsg: String;
 
   constructor(private userService: UserService,
-              private router: Router) {
+              private router: Router,
+              private sharedService: SharedService) {
   }
 
   ngOnInit() {
@@ -42,11 +44,12 @@ export class RegisterComponent implements OnInit {
       this.errorFlag = true;
       this.errorMsg = 'Passwords are not matching!';
     } else {
-      this.userService.createUser(this.user)
+      this.userService.register(this.user)
         .subscribe((user: any) => {
           this.user = user;
           if (this.user) {
-            this.router.navigate([`/user/${this.user['_id']}`]);
+            this.sharedService.user = user;
+            this.router.navigate(['user', user._id]);
           } else {
             this.errorFlag = true;
             this.errorMsg = 'Failed to create User!';

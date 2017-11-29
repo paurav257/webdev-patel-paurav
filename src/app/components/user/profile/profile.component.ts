@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
 import {UserService} from '../../../services/user.service.client';
+import {SharedService} from "../../../services/shared.service";
 
 @Component({
   selector: 'app-profile',
@@ -19,20 +20,22 @@ export class ProfileComponent implements OnInit {
 
   constructor(private userService: UserService,
               private route: ActivatedRoute,
-              private router: Router) {
+              private router: Router,
+              private sharedService: SharedService) {
   }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.userId = params['uid'];
-      this.userService.findUserById(this.userId)
-        .subscribe((user: any) => {
-          this.user = user;
-        });
-      if (!this.user) {
-        this.router.navigate(['/login']);
-      }
+      console.log(this.sharedService.user);
+      this.user = this.sharedService.user || this.user;
     });
+  }
+
+  logout() {
+    this.userService.logout()
+      .subscribe(
+        (data: any) => this.router.navigate(['/login'])
+      );
   }
 
   editProfile() {

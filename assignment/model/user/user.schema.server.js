@@ -15,6 +15,10 @@ module.exports = function () {
     dateCreated: {
       type: Date,
       default: Date.now()
+    },
+    facebook: {
+      id:    String,
+      token: String
     }
   }, {collection: "users"});
 

@@ -23,6 +23,7 @@ import {WidgetEditComponent} from './components/widget/widget-edit/widget-edit.c
 import {WidgetHtmlComponent} from './components/widget/widget-edit/widget-html/widget-html.component';
 import {FlickrImageSearchComponent} from './components/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component';
 import {WidgetTextComponent} from './components/widget/widget-edit/widget-text/widget-text.component';
+import {AuthGuard} from './services/auth-guard.service';
 
 
 const APP_ROUTES: Routes = [
@@ -30,22 +31,38 @@ const APP_ROUTES: Routes = [
   {path: 'test', component: TestComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'user/:uid', component: ProfileComponent},
-  {path: 'user/:uid/website', component: WebsiteListComponent},
-  {path: 'user/:uid/website/new', component: WebsiteNewComponent},
-  {path: 'user/:uid/website/:wid', component: WebsiteEditComponent},
-  {path: 'user/:uid/website/:wid/page', component: PageListComponent},
-  {path: 'user/:uid/website/:wid/page/new', component: PageNewComponent},
-  {path: 'user/:uid/website/:wid/page/:pid', component: PageEditComponent},
-  {path: 'user/:uid/website/:wid/page/:pid/widget', component: WidgetListComponent},
-  {path: 'user/:uid/website/:wid/page/:pid/widget/new', component: WidgetChooseComponent},
-  {path: 'user/:uid/website/:wid/page/:pid/widget/:wgid', component: WidgetEditComponent},
-  {path: 'user/:uid/website/:wid/page/:pid/widget/new/heading', component: WidgetHeadingComponent},
-  {path: 'user/:uid/website/:wid/page/:pid/widget/new/youtube', component: WidgetYoutubeComponent},
-  {path: 'user/:uid/website/:wid/page/:pid/widget/new/image', component: WidgetImageComponent},
-  {path: 'user/:uid/website/:wid/page/:pid/widget/new/html', component: WidgetHtmlComponent},
-  {path: 'user/:uid/website/:wid/page/:pid/widget/new/image/search', component: FlickrImageSearchComponent },
-  {path: 'user/:uid/website/:wid/page/:pid/widget/new/text', component: WidgetTextComponent}
+  {path: 'user/:uid', component: ProfileComponent, canActivate: [AuthGuard]},
+  {path: 'user/:uid/website', component: WebsiteListComponent, canActivate: [AuthGuard]},
+  {path: 'user/:uid/website/new', component: WebsiteNewComponent, canActivate: [AuthGuard]},
+  {path: 'user/:uid/website/:wid', component: WebsiteEditComponent, canActivate: [AuthGuard]},
+  {path: 'user/:uid/website/:wid/page', component: PageListComponent, canActivate: [AuthGuard]},
+  {path: 'user/:uid/website/:wid/page/new', component: PageNewComponent, canActivate: [AuthGuard]},
+  {path: 'user/:uid/website/:wid/page/:pid', component: PageEditComponent, canActivate: [AuthGuard]},
+  {path: 'user/:uid/website/:wid/page/:pid/widget', component: WidgetListComponent, canActivate: [AuthGuard]},
+  {path: 'user/:uid/website/:wid/page/:pid/widget/new', component: WidgetChooseComponent, canActivate: [AuthGuard]},
+  {path: 'user/:uid/website/:wid/page/:pid/widget/:wgid', component: WidgetEditComponent, canActivate: [AuthGuard]},
+  {
+    path: 'user/:uid/website/:wid/page/:pid/widget/new/heading',
+    component: WidgetHeadingComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'user/:uid/website/:wid/page/:pid/widget/new/youtube',
+    component: WidgetYoutubeComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'user/:uid/website/:wid/page/:pid/widget/new/image',
+    component: WidgetImageComponent,
+    canActivate: [AuthGuard]
+  },
+  {path: 'user/:uid/website/:wid/page/:pid/widget/new/html', component: WidgetHtmlComponent, canActivate: [AuthGuard]},
+  {
+    path: 'user/:uid/website/:wid/page/:pid/widget/new/image/search',
+    component: FlickrImageSearchComponent,
+    canActivate: [AuthGuard]
+  },
+  {path: 'user/:uid/website/:wid/page/:pid/widget/new/text', component: WidgetTextComponent, canActivate: [AuthGuard]}
 ];
 
 // Export the routes as module providers
