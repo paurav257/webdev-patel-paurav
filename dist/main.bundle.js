@@ -754,7 +754,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/user/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <div class=\"row\">\n    <div class=\"col-xs-12\">\n      <div *ngIf=\"errorFlag\"\n           class=\"alert alert-danger\">\n        {{errorMsg}}\n      </div>\n\n      <h1>Login</h1>\n      <form (ngSubmit)=\"login()\" #f=\"ngForm\">\n        <div class=\"form-group\">\n          <input name=\"username\"\n                 ngModel=\"\"\n                 required\n                 placeholder=\"username\"\n                 type=\"text\"\n                 class=\"form-control\"\n                 #username=\"ngModel\"/>\n          <span class=\"help-block\"\n                *ngIf=\"!username.valid && username.touched\">\n            Please enter username!\n          </span>\n        </div>\n        <div class=\"form-group\">\n          <input name=\"password\"\n                 ngModel=\"\"\n                 required\n                 placeholder=\"password\"\n                 type=\"password\"\n                 class=\"form-control\"\n                 #password=\"ngModel\"/>\n          <span class=\"help-block\"\n                *ngIf=\"!password.valid && password.touched\">\n            Please enter password!\n          </span>\n        </div>\n        <div class=\"form-group\">\n          <button type=\"submit\"\n                  class=\"btn btn-primary btn-block\"\n                  [disabled]=\"!f.valid\">\n            Login\n          </button>\n        </div>\n        <div class=\"form-group\">\n          <a class=\"btn btn-success btn-block\"\n             routerLink=\"/register\">\n            Register\n          </a>\n        </div>\n        <div class=\"form-group\">\n          <a href=\"/facebook/login\" class=\"btn btn-primary btn-block\">\n            <span class=\"fa fa-facebook\"></span>\n            Facebook\n          </a>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n  <div class=\"row\">\n    <div class=\"col-xs-12\">\n      <div *ngIf=\"errorFlag\"\n           class=\"alert alert-danger\">\n        {{errorMsg}}\n      </div>\n\n      <h1>Login</h1>\n      <form (ngSubmit)=\"login()\" #f=\"ngForm\">\n        <div class=\"form-group\">\n          <input name=\"username\"\n                 ngModel=\"\"\n                 required\n                 placeholder=\"username\"\n                 type=\"text\"\n                 class=\"form-control\"\n                 #username=\"ngModel\"/>\n          <span class=\"help-block\"\n                *ngIf=\"!username.valid && username.touched\">\n            Please enter username!\n          </span>\n        </div>\n        <div class=\"form-group\">\n          <input name=\"password\"\n                 ngModel=\"\"\n                 required\n                 placeholder=\"password\"\n                 type=\"password\"\n                 class=\"form-control\"\n                 #password=\"ngModel\"/>\n          <span class=\"help-block\"\n                *ngIf=\"!password.valid && password.touched\">\n            Please enter password!\n          </span>\n        </div>\n        <div class=\"form-group\">\n          <button type=\"submit\"\n                  class=\"btn btn-primary btn-block\"\n                  [disabled]=\"!f.valid\">\n            Login\n          </button>\n        </div>\n        <div class=\"form-group\">\n          <a class=\"btn btn-success btn-block\"\n             routerLink=\"/register\">\n            Register\n          </a>\n        </div>\n        <div class=\"form-group\">\n          <a href=\"http://localhost:3100/facebook/login\" class=\"btn btn-primary btn-block\">\n            <span class=\"fa fa-facebook\"></span>\n            Facebook\n          </a>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2923,14 +2923,9 @@ var _a;
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
-// The file contents for the current environment will overwrite these during build.
-// The build system defaults to the dev environment which uses `environment.ts`, but if you do
-// `ng build --env=prod` then `environment.prod.ts` will be used instead.
-// The list of which env maps to which file can be found in `.angular-cli.json`.
-// The file contents for the current environment will overwrite these during build.
 var environment = {
-    production: false,
-    baseUrl: 'http://localhost:3100'
+    production: true,
+    baseUrl: ''
 };
 //# sourceMappingURL=environment.js.map
 

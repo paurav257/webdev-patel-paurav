@@ -78,7 +78,7 @@ module.exports = function () {
   }
 
   function findUserByFacebookId(facebookId) {
-    return User.findOne({'facebook.id': facebookId});
+    return UserModel.findOne({'facebook.id': facebookId});
   }
 
 };
