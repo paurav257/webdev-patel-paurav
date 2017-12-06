@@ -754,7 +754,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/user/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <div class=\"row\">\n    <div class=\"col-xs-12\">\n      <div *ngIf=\"errorFlag\"\n           class=\"alert alert-danger\">\n        {{errorMsg}}\n      </div>\n\n      <h1>Login</h1>\n      <form (ngSubmit)=\"login()\" #f=\"ngForm\">\n        <div class=\"form-group\">\n          <input name=\"username\"\n                 ngModel=\"\"\n                 required\n                 placeholder=\"username\"\n                 type=\"text\"\n                 class=\"form-control\"\n                 #username=\"ngModel\"/>\n          <span class=\"help-block\"\n                *ngIf=\"!username.valid && username.touched\">\n            Please enter username!\n          </span>\n        </div>\n        <div class=\"form-group\">\n          <input name=\"password\"\n                 ngModel=\"\"\n                 required\n                 placeholder=\"password\"\n                 type=\"password\"\n                 class=\"form-control\"\n                 #password=\"ngModel\"/>\n          <span class=\"help-block\"\n                *ngIf=\"!password.valid && password.touched\">\n            Please enter password!\n          </span>\n        </div>\n        <div class=\"form-group\">\n          <button type=\"submit\"\n                  class=\"btn btn-primary btn-block\"\n                  [disabled]=\"!f.valid\">\n            Login\n          </button>\n        </div>\n        <div class=\"form-group\">\n          <a class=\"btn btn-success btn-block\"\n             routerLink=\"/register\">\n            Register\n          </a>\n        </div>\n        <div class=\"form-group\">\n          <a href=\"http://localhost:3100/facebook/login\" class=\"btn btn-primary btn-block\">\n            <span class=\"fa fa-facebook\"></span>\n            Facebook\n          </a>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n  <div class=\"row\">\n    <div class=\"col-xs-12\">\n      <div *ngIf=\"errorFlag\"\n           class=\"alert alert-danger\">\n        {{errorMsg}}\n      </div>\n\n      <h1>Login</h1>\n      <form (ngSubmit)=\"login()\" #f=\"ngForm\">\n        <div class=\"form-group\">\n          <input name=\"username\"\n                 ngModel=\"\"\n                 required\n                 placeholder=\"username\"\n                 type=\"text\"\n                 class=\"form-control\"\n                 #username=\"ngModel\"/>\n          <span class=\"help-block\"\n                *ngIf=\"!username.valid && username.touched\">\n            Please enter username!\n          </span>\n        </div>\n        <div class=\"form-group\">\n          <input name=\"password\"\n                 ngModel=\"\"\n                 required\n                 placeholder=\"password\"\n                 type=\"password\"\n                 class=\"form-control\"\n                 #password=\"ngModel\"/>\n          <span class=\"help-block\"\n                *ngIf=\"!password.valid && password.touched\">\n            Please enter password!\n          </span>\n        </div>\n        <div class=\"form-group\">\n          <button type=\"submit\"\n                  class=\"btn btn-primary btn-block\"\n                  [disabled]=\"!f.valid\">\n            Login\n          </button>\n        </div>\n        <div class=\"form-group\">\n          <a class=\"btn btn-success btn-block\"\n             routerLink=\"/register\">\n            Register\n          </a>\n        </div>\n        <div class=\"form-group\">\n          <a href=\"{{facebook}}\" class=\"btn btn-primary btn-block\">\n            <span class=\"fa fa-facebook\"></span>\n            Facebook\n          </a>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -768,6 +768,7 @@ module.exports = "<div class=\"container-fluid\">\n  <div class=\"row\">\n    <d
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__ = __webpack_require__("../../../../../src/app/services/user.service.client.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_shared_service__ = __webpack_require__("../../../../../src/app/services/shared.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -782,11 +783,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var LoginComponent = (function () {
     function LoginComponent(userService, router, sharedService) {
         this.userService = userService;
         this.router = router;
         this.sharedService = sharedService;
+        this.baseUrl = __WEBPACK_IMPORTED_MODULE_5__environments_environment__["a" /* environment */].baseUrl;
+        this.facebook = this.baseUrl + '/facebook/login';
     }
     LoginComponent.prototype.ngOnInit = function () {
     };

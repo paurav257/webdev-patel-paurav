@@ -3,6 +3,7 @@ import {NgForm} from '@angular/forms';
 import {UserService} from '../../../services/user.service.client';
 import {Router} from '@angular/router';
 import {SharedService} from '../../../services/shared.service';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +18,9 @@ export class LoginComponent implements OnInit {
   password: String;
   errorFlag: Boolean;
   errorMsg: String;
+
+  baseUrl = environment.baseUrl;
+  facebook = this.baseUrl + '/facebook/login';
 
   constructor(private userService: UserService,
               private router: Router,
