@@ -11,8 +11,8 @@ module.exports = function (app, websiteModel) {
     var website = req.body;
     websiteModel
       .createWebsiteForUser(userId, website)
-      .then(function (webite) {
-        res.json(webite);
+      .then(function (website) {
+        res.json(website);
       }, function (err) {
         res.status(500).send(err);
       });
