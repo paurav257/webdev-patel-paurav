@@ -1,22 +1,175 @@
-
-<div class="container">
-
-  <h1>
-    Angular 4 MEAN stack app
-  </h1>
-
-
-  <h3>
-    App works
-  </h3>
-
-
-  <h4>
-    <ul>
-    <li><a href="test">Test MongoDB</a></li>
-    <li><a href="../../../assets/index.html">Assignment 2 Index Page</a></li>
-    </ul>
-  </h4>
-
+<!--header-->
+<div id="home" class="banner">
+  <div class="container">
+    <div class="label-1"></div>
+    <div class="top-menu">
+      <span class="menu"> </span>
+      <ul class="nav">
+        <li><a class="scroll" href="#home">HOME</a></li>
+        <li><a class="scroll" href="#about">ABOUT</a></li>
+        <li><a class="scroll" href="#work">WORK</a></li>
+        <li><a class="scroll" href="#contact">CONTACT</a></li>
+      </ul>
+      <div class="logo">
+        <a href="#"><img src="../../../assets/personal/images/logo.png"/></a>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <!-- script-for-menu -->
+    <script>
+      $("span.menu").click(function () {
+        $(".top-menu ul").slideToggle("slow", function () {
+        });
+      });
+    </script>
+    <!-- script-for-menu -->
+    <div id="banner-top" class="banner-top">
+      <h1><span class="left-icon"> </span>Paurav Patel<span class="right-icon"> </span>
+        <div class="clearfix"></div>
+      </h1>
+      <h2><span class="left-icon"> </span>Software Developer<span class="right-icon"> </span>
+        <div class="clearfix"></div>
+      </h2>
+    </div>
+    <div class="header-icons">
+      <a href="#"><span class="fb"> </span></a>
+      <a href="#"><span class="tw"> </span></a>
+      <a href="#"><span class="pin"> </span></a>
+      <a href="#"><span class="likdin"> </span></a>
+      <a href="#"><span class="dribble"> </span></a>
+      <a href="#"><span class="be"> </span></a>
+    </div>
+  </div>
 </div>
+<!--/header-->
+<!--work-->
+<div id="work" class="work">
+  <div class="container">
+    <div class="label-3"></div>
+    <div class="label-4"></div>
+    <h3><span class="left-icon"> </span>WORK<span class="right-icon"> </span>
+      <div class="clearfix"></div>
+    </h3>
+    <p><a href="https://webdev-patel-paurav.herokuapp.com/login">Web Dev Assignments</a></p>
+    <p><a href="https://component-management-paurav.herokuapp.com">Project</a></p>
+    <!--Portfolio-->
+    <link rel="stylesheet" href="../../../assets/personal/css/swipebox.css">
+    <script src="../../../assets/personal/js/jquery.swipebox.min.js"></script>
+    <script type="text/javascript">
+      jQuery(function ($) {
+        $(".swipebox").swipebox();
+      });
+    </script>
+    <!--/Portfolio-->
+  </div>
+</div>
+<!--/work-->
+<!--about-->
+<div id="about" class="about">
+  <div class="container">
+    <div class="label-5"></div>
+    <div class="label-6"></div>
+    <h3><span class="left-icon"> </span>ABOUT<span class="right-icon">  </span>
+      <div class="clearfix"></div>
+    </h3>
+    <p>I am student at Northeastern</p>
+    <div class="about-info">
+      <div class="col-md-6 about-left">
+        <img src="../../../assets/personal/images/about.jpg" class="img-responsive" alt=""/>
+      </div>
+      <div class="col-md-6 about-right">
+        <p> I did my Summer internship at Lookout Mobile Security. Last year I also did my co-op at the same place.
+          I developed Ruby web application service at Lookout. The main functionality of the service was to provide
+          integration between Lookout and external MDMs. I was also contributing to another application which mocks the
+          response from the MDMs for test automation. The application was deployed on Heroku. Currently, I am enrolled
+          in this course and thinking of doing a Master's Project under Professor Mirek. Which is the same concept as
+          developing a web application to trigger some MapReduce jobs and giving the results to the end user.
+        </p>
+        <div class="about-icons">
+          <a href="#"><span class="fb"> </span></a>
+          <a href="#"><span class="tw"> </span></a>
+          <a href="#"><span class="pin"> </span></a>
+          <a href="#"><span class="likdin"> </span></a>
+          <a href="#"><span class="dribble"> </span></a>
+          <a href="#"><span class="be"> </span></a>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+<!--/about-->
+<!--contact-->
+<div id="contact" class="contact">
+  <div class="container">
+    <div class="label-7"></div>
+    <div class="label-8"></div>
+    <h3><span class="left-icon"> </span>CONTACT<span class="right-icon"> </span>
+      <div class="clearfix"></div>
+    </h3>
+    <p>Paurav Patel</p>
+    <div class="conatct-form">
+      <ul class="form">
+        <li>
+          <input type="text" class="text" value="Name*" onfocus="this.value = '';"
+                 onblur="if (this.value == '') {this.value = 'Name*';}">
+        </li>
+        <li>
+          <input type="text" class="text" value="Email*" onfocus="this.value = '';"
+                 onblur="if (this.value == '') {this.value = 'Email*';}">
+        </li>
+        <li>
+          <textarea value="Message*:" onfocus="this.value = '';"
+                    onblur="if (this.value == '') {this.value = 'Your Message*';}">Message*</textarea>
+        </li>
+        <div class="sub-button">
+          <input type="submit" value="SEND">
+        </div>
+      </ul>
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        /*
+                            var defaults = {
+                                  containerID: 'toTop', // fading element id
+                                containerHoverID: 'toTopHover', // fading element hover id
+                                scrollSpeed: 1200,
+                                easingType: 'linear'
+                             };
+                            */
 
+        $().UItoTop({easingType: 'easeOutQuart'});
+
+      });
+    </script>
+    <a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover"
+                                                                             style="opacity: 1;"> </span></a>
+  </div>
+</div>
+<!--/contact-->
+
+<link href="../../../assets/personal/css/bootstrap.css" rel='stylesheet' type='text/css'/>
+<link href="../../../assets/personal/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<script type="application/x-javascript"> addEventListener("load", function () {
+  setTimeout(hideURLbar, 0);
+}, false);
+
+function hideURLbar() {
+  window.scrollTo(0, 1);
+} </script>
+<script src="../../../assets/personal/js/jquery.min.js"></script>
+<!--web_fonts-->
+<link href='http://fonts.googleapis.com/css?family=Abril+Fatface' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Vollkorn:400italic,700italic,400,700' rel='stylesheet'
+      type='text/css'>
+<!--/web_fonts-->
+<!--start-smoth-scrolling-->
+<script type="text/javascript">
+  jQuery(document).ready(function ($) {
+    $(".scroll").click(function (event) {
+      event.preventDefault();
+      $('html,body').animate({scrollTop: $(this.hash).offset().top}, 900);
+    });
+  });
+</script>
+<!--start-smoth-scrolling-->
